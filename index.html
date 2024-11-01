@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HotView Labs Blog Post</title>
+    <link rel="stylesheet" href="/css/postIndex.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>HotView Labs</h1>
+        </div>
+        <nav>
+            <a href="/aboutUs.html">About Us</a>
+            <a href="/contact.html">Contact</a>
+            <button class="sign-in">Sign In</button>
+        </nav>
+    </header>
+
+    <section class="post-info">
+        <div class="post-title">
+            <h2>Post Title</h2>
+            <p>Author</p>
+        </div>
+        <div class="post-date">
+            <p>Publication Date</p>
+        </div>
+    </section>
+
+    <section class="post-content">
+        <div class="post-image">
+            <img src="image1.jpg" alt="Blog Image">
+        </div>
+        <div class="post-text">
+            <ul>
+                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+            </ul>
+        </div>
+        <div class="post-image-right">
+            <img src="image2.jpg" alt="Additional Image">
+        </div>
+    </section>
+    <footer>
+        <p>Contact Us: info@hotviewblog.com | Phone: 123-456-7890</p>
+    </footer>
+    <script type="module">
+        import { fetchPostById } from '/js/fetchPostById.js';
+        const postId = new URLSearchParams(window.location.search).get('id');
+        fetchPostById(postId);
+      </script>
+      
+</body>
+</html>

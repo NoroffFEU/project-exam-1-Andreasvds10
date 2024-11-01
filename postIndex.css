@@ -1,0 +1,160 @@
+/* Global reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Grunnleggende kroppsstyling */
+body {
+    font-family: 'Open Sans', sans-serif;  /* Moderne, ren font */
+    background-color: #f0f4f7;  
+    color: #333; 
+    line-height: 1.6;  /* Linjehøyde for lesbarhet */
+}
+
+/* Topptekstseksjon */
+header {
+    background: linear-gradient(90deg, #4b6cb7, #182848);  /* Gradient bakgrunn */
+    padding: 20px 50px;  /* Padding rundt toppteksten */
+    display: flex;  /* Flexbox for å justere elementer horisontalt */
+    justify-content: space-between;  /* Avstand mellom logo og navigasjon */
+    align-items: center;  /* Juster elementer vertikalt */
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);  /* Tynn bunnlinje */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* skygge for dybde */
+}
+
+/* Logo-styling */
+.logo h1 {
+    font-size: 30px;  /* Større font for logoen */
+    font-weight: bold;
+    color: #fff; 
+    text-transform: uppercase;  /* Store bokstaver */
+    letter-spacing: 2px;  /* Mellomrom mellom bokstaver */
+    border: 2px solid #fff;  /* Ramme rundt logoen */
+    padding: 5px 10px;
+    border-radius: 5px;  /* Runde hjørner */
+    background-color: rgba(255, 255, 255, 0.1);  /* Lett bakgrunnsfarge */
+}
+
+/* Navigasjonslenker */
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    margin-right: 20px;  /* Mellomrom mellom lenker */
+    color: #fff;  
+    text-decoration: none;  /* Fjern understreking */
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px 20px;
+    transition: all 0.3s ease;  /* Glatt overgang på hover */
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);  /* Endring på hover */
+    color: #f0f0f0;  
+}
+
+/* Logg-inn-knapp */
+.sign-in {
+    background-color: #fff;  
+    color: #4b6cb7;  /* Blå tekst */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;  /* Runde hjørner */
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;  /* Glatt overgang */
+}
+
+.sign-in:hover {
+    background-color: #f0f0f0;  
+    color: #182848;  /* Mørkere tekstfarge på hover */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);  /* Skygge på hover */
+}
+
+/* Dekorativ linje på toppen */
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 5px;
+    width: 100%;/* Tynn gradientlinje */
+    z-index: 999;
+}
+
+/* Post-info seksjon */
+section.post-info {
+    margin-top: 100px;  /* Avstand under toppteksten */
+    background-color: #d3e3f4;  
+    padding: 15px 50px;
+    display: flex;  /* Flex layout for tittel og dato */
+    justify-content: space-between;
+}
+
+/* Tittel og forfatter */
+.post-title h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.post-title p, .post-date p {
+    color: #666;
+    font-size: 16px;
+}
+
+/* Hovedinnhold layout */
+section.post-content {
+    padding: 40px 50px;
+    display: grid;  /* Grid layout for innhold */
+    grid-template-columns: 2fr 3fr;  /* To kolonner: bilde til venstre, tekst til høyre */
+    gap: 20px;  /* Mellomrom mellom kolonner */
+}
+
+.post-image {
+    grid-column: 1 / 2;  /* Bilde i første kolonne */
+    align-self: start;  /* Juster øverst */
+}
+
+/* Tekst ved siden av bildet */
+.post-text {
+    grid-column: 2 / 3;  /* Tekst i andre kolonne */
+    align-self: start;  /* Juster øverst */
+}
+
+.post-image-right {
+    grid-column: 2 / 3;  /* Høyre bilde i andre kolonne */
+    grid-row: 2 / 3;  /* Under teksten */
+    margin-top: 20px;  /* Avstand over bildet */
+}
+
+/* Mindre bilde */
+.post-image img, .post-image-right img {
+    width: 80%;  /* Redusert størrelse på hovedbilde */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+}
+
+/* Ekstra bilde på høyre side */
+.post-image-right img {
+    width: 60%;  /* Mindre størrelse for høyre bilde */
+}
+
+footer {
+    background-color: #d3e3f4;  
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+    margin-top: 40px;
+}
+
+

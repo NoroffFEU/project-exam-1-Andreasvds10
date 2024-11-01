@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/register.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>HotView Labs</h1>
+        </div>
+        <nav>
+            <a href="/index.html">Home</a>
+            <a href="/aboutUs.html">About Us</a>
+            <a href="/contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="login-container">
+            <h2>LOGIN</h2>
+            <form>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password">
+                </div>
+
+                <button class="login-btn" type="submit">Login</button>
+
+                <p class="forgot-password"><a href="#">Forgot Password?</a></p>
+
+                <div class="divider"></div>
+
+                <p class="need-account">Need an account? <a href="#">Sign Up</a></p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Contact Us: info@hotviewblog.com | Phone: 123-456-7890</p>
+    </footer>
+    <script type="module">
+        import { registerUser } from '/js/auth.js';
+        // Call registerUser() when submitting the registration form
+      </script>
+      
+</body>
+</html>

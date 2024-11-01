@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post Editor</title>
+    <link rel="stylesheet" href="/css/edit.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>HotView Labs</h1>
+        </div>
+        <nav>
+            <a href="/index.html">Home</a>
+            <a href="/aboutUs.html">About Us</a>
+            <a href="/contact.html">Contact</a>
+  
+            <button class="sign-in">Sign In</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="post-editor">
+            <form>
+                <div class="form-header">
+                    <button class="save-btn">Save</button>
+                </div>
+
+                <div class="post-details">
+                    <div class="form-group">
+                        <label for="title">Blog Title</label>
+                        <input type="text" id="title" placeholder="Enter the blog title">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Blog Category</label>
+                        <input type="text" id="category" placeholder="Enter the category">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="author">Blogger/Author</label>
+                        <input type="text" id="author" placeholder="Author name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="published">Published On</label>
+                        <input type="date" id="published" placeholder="Select date">
+                    </div>
+                </div>
+
+                <div class="post-body">
+                    <textarea placeholder="Create your post here..."></textarea>
+                </div>
+
+                <div class="image-section">
+                    <h3>Image</h3>
+                    <p>Upload a new one or select a file from your library</p>
+                    <div class="image-buttons">
+                        <button type="button">Upload</button>
+                        <button type="button">Media Library</button>
+                        <button type="button">Insert from URL</button>
+                    </div>
+                </div>
+
+                <div class="form-footer">
+                    <button type="button" class="delete-btn">Delete Post</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Contact Us: info@hotviewblog.com | Phone: 123-456-7890</p>
+        <button class="sign-in">Sign In</button>
+    </footer>
+    <script type="module">
+        import { updatePost, deletePost } from '/js/editPost.js';
+        // Use these functions to handle edit and delete actions.
+      </script>
+      
+</body>
+</html>
