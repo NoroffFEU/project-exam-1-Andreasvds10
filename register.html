@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Register</title>
     <link rel="stylesheet" href="/css/register.css">
 </head>
 <body>
@@ -13,34 +13,45 @@
             <h1>HotView Labs</h1>
         </div>
         <nav>
-            <a href="/index.html">Home</a>
-            <a href="/aboutUs.html">About Us</a>
-            <a href="/contact.html">Contact</a>
+            <a href="/html/index.html">Home</a>
+            <a href="/html/aboutUs.html">About Us</a>
+            <a href="/html/contact.html">Contact</a>
         </nav>
     </header>
 
     <main>
-        <section class="login-container">
-            <h2>LOGIN</h2>
+        <section class="register-container">
+            <h2>Register your account</h2>
             <form>
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="Enter your email">
+                    <label for="full-name">Name</label>
+                    <input type="text" id="full-name" placeholder="Enter your full name...">
+                </div>
+
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter a username...">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" id="email" placeholder="Enter your email address...">
                 </div>
 
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" id="password" placeholder="Enter your password">
+                    <input type="password" id="password" placeholder="Enter your password...">
                 </div>
 
-                <button class="login-btn" type="submit">Login</button>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" placeholder="Enter your password again...">
+                </div>
 
-                <p class="forgot-password"><a href="#">Forgot Password?</a></p>
-
-                <div class="divider"></div>
-
-                <p class="need-account">Need an account? <a href="#">Sign Up</a></p>
+                <button class="register-btn" type="submit">Sign up</button>
             </form>
+
+            <p class="already-account">Already got an account? <a href="/html/account/login.html">Log in</a></p>
         </section>
     </main>
 
@@ -48,8 +59,8 @@
         <p>Contact Us: info@hotviewblog.com | Phone: 123-456-7890</p>
     </footer>
     <script type="module">
-        import { registerUser } from '/js/auth.js';
-        // Call registerUser() when submitting the registration form
+        import { loginUser } from '/js/auth.js';
+        // Call loginUser() when submitting the login form
       </script>
       
 </body>

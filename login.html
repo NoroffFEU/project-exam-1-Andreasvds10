@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>Login</title>
     <link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
@@ -13,55 +14,54 @@
             <h1>HotView Labs</h1>
         </div>
         <nav>
-            <a href="/index.html">Home</a>
-            <a href="/aboutUs.html">About Us</a>
-            <a href="/contact.html">Contact</a>
+            <a href="/html/index.html">Home</a>
+            <a href="/html/aboutUs.html">About Us</a>
+            <a href="/html/contact.html">Contact</a>
         </nav>
     </header>
 
     <main>
-        <section class="register-container">
-            <h2>Register your account</h2>
+        <section class="login-container">
+            <h2>LOGIN</h2>
             <form>
                 <div class="form-group">
-                    <label for="full-name">Name</label>
-                    <input type="text" id="full-name" placeholder="Enter your full name...">
-                </div>
-
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" placeholder="Enter a username...">
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email address</label>
-                    <input type="email" id="email" placeholder="Enter your email address...">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email">
                 </div>
 
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" id="password" placeholder="Enter your password...">
+                    <input type="password" id="password" placeholder="Enter your password">
                 </div>
 
-                <div class="form-group">
-                    <label for="confirm-password">Confirm Password</label>
-                    <input type="password" id="confirm-password" placeholder="Enter your password again...">
-                </div>
+                <button class="login-btn" type="submit">Login</button>
 
-                <button class="register-btn" type="submit">Sign up</button>
+                <div id="forgotPasswordModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h4>Reset Password</h4>
+      
+                        <input type="email" id="resetEmail" placeholder="Enter your email">
+                        <button id="sendResetEmail" type="Reset-button">Send Email</button>
+                    </div>
+                </div>
+                
+
+                <div class="divider"></div>
+
+                <p class="need-account">Need an account? <a href="/html/account/register.html">Sign Up</a></p>
             </form>
-
-            <p class="already-account">Already got an account? <a href="#">Log in</a></p>
         </section>
+        
     </main>
-
     <footer>
         <p>Contact Us: info@hotviewblog.com | Phone: 123-456-7890</p>
     </footer>
     <script type="module">
-        import { loginUser } from '/js/auth.js';
-        // Call loginUser() when submitting the login form
+        import { registerUser } from '/js/auth.js';
+        // Call registerUser() when submitting the registration form
       </script>
-      
+      <script src="/js/resetPassword.js"></script>
 </body>
 </html>
+

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HotView Labs Blog Post</title>
-    <link rel="stylesheet" href="/css/postIndex.css">
+    <title>HotView Labs Blog</title>
+    <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
     <header>
@@ -12,44 +12,44 @@
             <h1>HotView Labs</h1>
         </div>
         <nav>
-            <a href="/aboutUs.html">About Us</a>
-            <a href="/contact.html">Contact</a>
-            <button class="sign-in">Sign In</button>
+            <a href="/html/aboutUs.html ">About Us</a>
+            <a href="/html/contact.html">Contact</a>
+            <a href="/html/account/login.html" class="signIn-Button">Sign In</a>
+      
+
         </nav>
     </header>
 
-    <section class="post-info">
-        <div class="post-title">
-            <h2>Post Title</h2>
-            <p>Author</p>
-        </div>
-        <div class="post-date">
-            <p>Publication Date</p>
-        </div>
-    </section>
+    <main>
+        <div id="loading" style="display: none;">Loading posts...</div>
+        
+        <section class="intro">
+            <p>Welcome to the <strong>HotView Labs Blog</strong>, your gateway to the cutting edge of Tech <strong>Research And Development</strong>. Dive into the latest trends, breakthroughs, and expert insights as we navigate the ever-evolving landscape of technology.</p>
+        </section>
 
-    <section class="post-content">
-        <div class="post-image">
-            <img src="image1.jpg" alt="Blog Image">
-        </div>
-        <div class="post-text">
-            <ul>
-                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-            </ul>
-        </div>
-        <div class="post-image-right">
-            <img src="image2.jpg" alt="Additional Image">
-        </div>
-    </section>
+        <section class="latest-post">
+            <h2>Latest Post</h2>
+            <div class="post-carousel">
+                <button class="carousel-control prev">&larr;</button>
+                <div class="posts">
+                    <!-- Carousel posts will be dynamically loaded here -->
+                </div>
+                <button class="carousel-control next">&rarr;</button>
+            </div>
+        </section>
+
+        <section class="thumbnail-grid">
+            <h2>Recently Posted</h2>
+            <div class="grid">
+                <!-- Thumbnails will be dynamically loaded here -->
+            </div> 
+        </section>
+    </main>
+
     <footer>
-        <p>Contact Us: info@hotviewblog.com | Phone: 123-456-7890</p>
+        <p>Contact Us: Info@hotviewblog.com | Phone: 123-456-7890</p>
     </footer>
-    <script type="module">
-        import { fetchPostById } from '/js/fetchPostById.js';
-        const postId = new URLSearchParams(window.location.search).get('id');
-        fetchPostById(postId);
-      </script>
-      
+    <script type="module" src="js/config.js"></script>
+    <script type="module" src="js/fetchPosts.js"></script>
 </body>
 </html>

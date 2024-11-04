@@ -11,9 +11,6 @@ body {
     background-color: #f0f4f7;
     color: #333;
     line-height: 1.6;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
 }
 
 /* Header Styling */
@@ -60,23 +57,22 @@ nav a:hover {
 
 /* Main Styling */
 main {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.login-container {
+.register-container {
     background-color: #d3e3f4;
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     max-width: 400px;
-    width: 100%;
+    margin: 0 auto;
     text-align: center;
 }
 
-.login-container h2 {
+.register-container h2 {
     margin-bottom: 30px;
     font-size: 24px;
     color: #182848;
@@ -108,7 +104,7 @@ input {
 }
 
 /* Button Styling */
-.login-btn {
+.register-btn {
     background-color: #4b6cb7;
     color: white;
     padding: 10px;
@@ -120,43 +116,22 @@ input {
     margin-top: 10px;
 }
 
-.login-btn:hover {
+.register-btn:hover {
     background-color: #182848;
 }
 
-/* Forgot Password */
-.forgot-password {
-    margin-top: 15px;
+/* Already have an account? */
+.already-account {
+    margin-top: 20px;
     font-size: 14px;
 }
 
-.forgot-password a {
+.already-account a {
     color: #182848;
     text-decoration: none;
 }
 
-.forgot-password a:hover {
-    text-decoration: underline;
-}
-
-/* Divider Styling */
-.divider {
-    height: 1px;
-    background-color: #ccc;
-    margin: 20px 0;
-}
-
-/* Sign Up */
-.need-account {
-    font-size: 14px;
-}
-
-.need-account a {
-    color: #182848;
-    text-decoration: none;
-}
-
-.need-account a:hover {
+.already-account a:hover {
     text-decoration: underline;
 }
 
@@ -166,6 +141,11 @@ footer {
     padding: 20px 0;
     color: #333;
     text-align: center;
+    margin-top: 40px;
     font-size: 14px;
-    width: 100%;
+    margin-bottom: 1px;
+}
+
+footer p {
+    margin: 0;
 }
