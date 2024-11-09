@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,45 +22,38 @@
     <main>
         <section class="login-container">
             <h2>LOGIN</h2>
-            <form>
+            <form id="login-form">
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="Enter your email">
+                    <input type="email" id="email" placeholder="Enter your email" required>
                 </div>
 
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" id="password" placeholder="Enter your password">
+                    <input type="password" id="password" placeholder="Enter your password" required>
                 </div>
 
                 <button class="login-btn" type="submit">Login</button>
-
-                <div id="forgotPasswordModal" class="modal">
-                    <div class="modal-content">
-                        <span class="close">&times;</span>
-                        <h4>Reset Password</h4>
-      
-                        <input type="email" id="resetEmail" placeholder="Enter your email">
-                        <button id="sendResetEmail" type="Reset-button">Send Email</button>
-                    </div>
-                </div>
-                
-
-                <div class="divider"></div>
-
-                <p class="need-account">Need an account? <a href="/html/account/register.html">Sign Up</a></p>
             </form>
         </section>
-        
     </main>
+
     <footer>
         <p>Contact Us: info@hotviewblog.com | Phone: 123-456-7890</p>
     </footer>
+
+    <!-- JavaScript to handle login functionality -->
     <script type="module">
-        import { registerUser } from '/js/auth.js';
-        // Call registerUser() when submitting the registration form
-      </script>
-      <script src="/js/resetPassword.js"></script>
+        import { loginUser } from '/js/auth.js';
+
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            loginUser({ email, password });
+        });
+    </script>
 </body>
 </html>
-

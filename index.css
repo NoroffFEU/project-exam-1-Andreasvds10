@@ -108,17 +108,23 @@ nav a:hover, .sign-in:hover, .signIn-Button:hover {
     color: #182848;
 }
 
+/* Carousel container */
 .post-carousel {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 10px;
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
+/* Carousel navigation buttons */
 .carousel-control {
     background-color: #4b6cb7;
     color: #fff;
     border: none;
-    padding: 10px;
+    padding: 10px 15px;
     font-size: 18px;
     cursor: pointer;
     border-radius: 5px;
@@ -129,10 +135,35 @@ nav a:hover, .sign-in:hover, .signIn-Button:hover {
     background-color: #182848;
 }
 
-.posts {
-    max-width: 600px;
-    margin: 0 10px;
+/* Carousel window: hides overflow */
+.carousel-window {
     overflow: hidden;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Posts container: scrolls through each image */
+.posts {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+}
+
+/* Each image styling */
+.posts a img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.post-item {
+    min-width: 100%; /* Each post takes full width */
+    text-align: center;
 }
 
 /* Thumbnail Grid Section */
