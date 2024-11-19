@@ -24,29 +24,29 @@ window.onclick = function(event) {
 
 // Sender passordtilbakestillingsforespørsel når knappen "Send Email" klikkes
 sendResetEmailButton.onclick = async function() {
-    const email = resetEmailInput.value; // Henter e-postadressen fra input-feltet
+    const email = resetEmailInput.value;
     if (!email) {
-        alert("Please enter your email address."); // Viser en melding hvis feltet er tomt
-        return;
+      alert("Please enter your email address.");
+      return;
     }
-
+  
     try {
-        const response = await fetch('/api/reset-password', { // URL for backend-endepunktet
-            method: 'POST', // HTTP-metoden som brukes
-            headers: { 'Content-Type': 'application/json' }, // Angir at dataene sendes som JSON
-            body: JSON.stringify({ email }) // Sender e-posten som JSON-data
-        });
-
-        if (response.ok) {
-            alert("A password reset email has been sent. Please check your inbox.");
-            modal.style.display = "none"; // Lukker modalvinduet ved suksess
-        } else {
-            const data = await response.json();
-            alert(data.message || "Failed to send reset email."); // Viser feilmelding
-        }
+      const response = await fetch('https://v2.api.noroff.dev/auth/reset-password', { // Replace with the correct endpoint
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+  
+      if (response.ok) {
+        alert("A password reset email has been sent. Please check your inbox.");
+        modal.style.display = "none";
+      } else {
+        const data = await response.json();
+        alert(data.message || "Failed to send reset email.");
+      }
     } catch (error) {
-        console.error("Error:", error); // Logger feilen i konsollen
-        alert("An error occurred. Please try again."); // Viser feilmelding til brukeren
+      console.error("Error:", error);
+      alert("An error occurred. Please try again.");
     }
-}
-
+  };
+  

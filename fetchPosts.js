@@ -1,61 +1,89 @@
-import { API_BASE, options } from './config.js';
-
-export async function fetchPosts() {
-  try {
-    const response = await fetch(API_BASE, options);
-    const data = await response.json();
-    populateCarousel(data.slice(0, 3)); // Show the latest 3 posts in the carousel
-    populateGrid(data.slice(0, 12)); // Show the latest 12 posts in the grid
-  } catch (error) {
-    console.error('Error fetching posts:', error);
+// API Base URL and Fetch Options
+const API_BASE = 'https://v2.api.noroff.dev';
+const options = {
+  headers: {
+    Authorization: `Bearer ${localStorage.getItem('accessToken') || ''}`,
+    'X-Noroff-API-Key': 'a003e435-e19d-41f9-b3f7-06a0e22f4922'
   }
+};
+
+// Fetch posts from the API
+export async function fetchPosts() {
+    try {
+        const response = await fetch(`${API_BASE}/blog/posts`, options); // Correct endpoint for fetching posts
+        if (!response.ok) {
+            throw new Error(`Error fetching posts: ${response.statusText}`);
+        }
+        const data = await response.json();
+        console.log('Posts:', data);
+
+        // Populate the carousel and grid with posts
+        populateCarousel(data);
+        populateGrid(data);
+    } catch (error) {
+        console.error('Error fetching posts:', error);
+    }
 }
 
+// Populate the carousel with the 3 latest posts
 function populateCarousel(posts) {
-  const postsContainer = document.querySelector('.posts');
+    const carousel = document.querySelector('.carousel');
+    const latestPosts = posts.slice(0, 3); // Get the 3 latest posts
 
-  // Create carousel items
-  postsContainer.innerHTML = posts.map(post => `
-    <div class="post-item">
-      <img src="${post.media?.url || 'placeholder.jpg'}" alt="${post.title}">
-      <h3>${post.title}</h3>
-      <p>${post.excerpt}</p>
-      <button onclick="location.href='/post/index.html?id=${post.id}'">Read More</button>
-    </div>
-  `).join('');
+    // Add the carousel items dynamically
+    carousel.innerHTML = latestPosts
+        .map(post => `
+            <div class="carousel-item">
+                <img src="${post.media || 'https://via.placeholder.com/600x300'}" alt="${post.title}">
+                <div class="carousel-info">
+                    <h3>${post.title}</h3>
+                    <p>${post.body.slice(0, 100)}...</p>
+                    <a href="/html/post/index.html?id=${post.id}">Read more</a>
+                </div>
+            </div>
+        `)
+        .join('');
 
-  let currentIndex = 0; // Tracks the current slide index
+    // Set up navigation for the carousel
+    let currentIndex = 0;
+    const items = document.querySelectorAll('.carousel-item');
+    const totalItems = items.length;
 
-  // Function to update the display of the carousel
-  const updateCarouselDisplay = () => {
-    const offset = -currentIndex * 100;
-    postsContainer.style.transform = `translateX(${offset}%)`; // Slide horizontally
-  };
+    // Show the next item
+    document.getElementById('next-btn').addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % totalItems;
+        updateCarousel();
+    });
 
-  // Event listeners for navigation buttons
-  document.querySelector('.carousel-control.prev').addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + posts.length) % posts.length;
-    updateCarouselDisplay();
-  });
+    // Show the previous item
+    document.getElementById('prev-btn').addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+        updateCarousel();
+    });
 
-  document.querySelector('.carousel-control.next').addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % posts.length;
-    updateCarouselDisplay();
-  });
+    function updateCarousel() {
+        items.forEach((item, index) => {
+            item.style.display = index === currentIndex ? 'block' : 'none';
+        });
+    }
+
+    updateCarousel(); // Initial update
 }
 
+// Populate the grid with the 12 latest posts
 function populateGrid(posts) {
-  const gridContainer = document.querySelector('.grid');
+    const grid = document.querySelector('.grid');
+    const latestPosts = posts.slice(0, 12); // Get the 12 latest posts
 
-  gridContainer.innerHTML = posts.map(post => `
-    <div class="grid-item">
-      <a href="/post/index.html?id=${post.id}">
-        <img src="${post.media?.url || 'placeholder.jpg'}" alt="${post.title}">
-        <h4>${post.title}</h4>
-      </a>
-    </div>
-  `).join('');
+    // Add the grid items dynamically
+    grid.innerHTML = latestPosts
+        .map(post => `
+            <div class="grid-item">
+                <h4>${post.title}</h4>
+                <p>${post.body.slice(0, 50)}...</p>
+                <a href="/html/post/index.html?id=${post.id}">Read more</a>
+            </div>
+        `)
+        .join('');
 }
 
-// Fetch posts when the page loads
-fetchPosts();
