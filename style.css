@@ -1,278 +1,121 @@
-/* Global reset */
+/* General reset */
 * {
-    margin: 0; /* Fjerner all margin */
-    padding: 0; /* Fjerner all padding */
-    box-sizing: border-box; /* Sørger for at padding og border inkluderes i elementets totale bredde/høyde */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Generell styling for nettsiden */
+/* Body */
 body {
-    font-family: 'Open Sans', sans-serif; /* Bruker Open Sans font */
-    background-color: #f0f4f7; /* Lys gråblå bakgrunnsfarge */
-    color: #333; /* Mørk tekstfarge */
-    line-height: 1.6; /* Avstand mellom linjer for bedre lesbarhet */
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f0f4f7;
+    color: #333;
+    line-height: 1.6;
 }
 
-/* Styling for headeren */
+/* Header */
 header {
-    background: linear-gradient(90deg, #4b6cb7, #182848); /* Gradient bakgrunn fra blått til mørkeblått */
-    padding: 20px 50px; /* Padding for plass rundt innholdet */
-    display: flex; /* Bruker flexbox for å plassere elementer horisontalt */
-    justify-content: space-between; /* Sørger for at logo og navigasjon plasseres i hver sin ende */
-    align-items: center; /* Vertikalt sentrerte elementer */
-    border-bottom: 2px solid rgba(255, 255, 255, 0.2); /* Tynn, hvit bunnlinje */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    position: relative; /* Plasserer headeren relativt i forhold til andre elementer */
-    z-index: 1000; /* Sørger for at headeren vises over annet innhold */
+    background: linear-gradient(90deg, #4b6cb7, #182848);
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
 }
 
-/* Styling for logoen */
 .logo h1 {
-    font-size: 30px; /* Stor skriftstørrelse */
-    font-weight: bold; /* Fet tekst */
-    color: #fff; /* Hvit tekst */
-    text-transform: uppercase; /* Store bokstaver */
-    letter-spacing: 2px; /* Mellomrom mellom bokstaver */
-    border: 2px solid #fff; /* Hvit ramme rundt logoen */
-    padding: 5px 10px; /* Padding inni logoen */
-    border-radius: 5px; /* Runde hjørner på logoen */
-    background-color: rgba(255, 255, 255, 0.1); /* Lett gjennomsiktig bakgrunn */
-}
-
-/* Styling for navigasjonsmenyen */
-nav {
-    display: flex; /* Bruker flexbox for å plassere elementer horisontalt */
-    align-items: center; /* Sørger for at lenker og knappen er vertikalt sentrert */
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 nav a {
-    margin-right: 20px; /* Mellomrom mellom lenkene */
-    color: #fff; /* Hvit tekstfarge */
-    text-decoration: none; /* Ingen understreking */
-    font-size: 18px; /* Større tekststørrelse */
-    font-weight: 500; /* Fetere tekst */
-    padding: 10px 20px; /* Padding inni lenkene */
-    transition: all 0.3s ease; /* Jevn overgang ved hover */
-    border-radius: 5px; /* Runde hjørner på lenkene */
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    padding: 8px 16px;
+    border-radius: 5px;
 }
 
-/* Hover-effekt på navigasjonslenkene */
 nav a:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Lys bakgrunn ved hover */
-    color: #f0f0f0; /* Lysere tekstfarge ved hover */
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Styling for "Logg inn"-knappen */
-.sign-in {
-    background-color: #fff; 
-    color: #4b6cb7; 
-    border: none; /* Ingen kantlinje */
-    padding: 10px 20px; /* Padding inni knappen */
-    border-radius: 30px; /* Runde hjørner på knappen */
-    font-size: 16px; /* Skriftstørrelse */
-    font-weight: bold; /* Fet tekst */
-    cursor: pointer; /* Markøren endres til hånd */
-    transition: all 0.3s ease; /* Glatt overgang ved hover */
+/* Intro */
+.intro {
+    padding: 20px 50px;
+    text-align: center;
 }
 
-/* Hover-effekt for "Logg inn"-knappen */
-.sign-in:hover {
-    background-color: #f0f0f0; 
-    color: #182848; 
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Subtil skygge på hover */
-}
-
-/* Dekorativ linje på toppen av headeren */
-header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 5px;
-    width: 100%;
-    background: linear-gradient(to right, #e4e4e4, #3b4371); /* Gradient linje */
-    z-index: 999;
-}
-
-/* Hovedinnhold */
-main {
-    padding: 60px 50px; /* Padding rundt hovedinnholdet */
-    max-width: 1200px; /* Maks bredde på innholdet */
-    margin: 0 auto; /* Sentraliserer innholdet */
-}
-
-/* Seksjon for overskriften */
-.carousel-section h2 {
-    font-size: 32px; /* Størrelse på overskrift */
-    text-align: center; /* Sentrerer teksten */
-    margin-bottom: 40px; /* Mellomrom under overskriften */
-    color: #333; 
-}
-
-/* Carousel-styling */
+/* Latest Posts Carousel */
 .latest-post {
-    padding: 60px 0; /* Avstand over og under innholdet */
-    text-align: center; /* Sentrerer innholdet */
+    padding: 20px 50px;
+    text-align: center;
 }
 
-.latest-post h2 {
-    font-size: 36px; /* Større font for tittelen */
-    color: #222; 
-    margin-bottom: 40px; /* Mellomrom under tittelen */
-    letter-spacing: 1.5px; /* Mellomrom mellom bokstavene */
-}
-
-/* Carousel wrapper */
 .post-carousel {
+    position: relative;
     display: flex;
     justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 80%; /* Carousel bredde */
-    max-width: 1100px; /* Maks bredde */
-    margin: 0 auto; /* Sentraliserer carousel */
-    overflow: hidden; /* Skjuler bilder utenfor synlig område */
-    border-radius: 12px; /* Runde hjørner */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Skygge for dybde */
-    background-color: #fff; 
+    overflow: hidden;
 }
 
-/* Carousel-bilder */
 .posts {
-    display: flex; /* Flex for horisontal layout */
-    transition: transform 0.5s ease-in-out; /* Animasjon når bilder beveger seg */
-    width: 300%; /* Bredden på alle bildene */
+    display: flex;
+    transition: transform 0.5s ease-in-out;
 }
 
 .post-item {
-    min-width: 100%; /* Hvert bilde tar opp hele bredden av carousel */
-    padding: 20px; /* Padding rundt bildene */
-    text-align: center; /* Sentrerer teksten */
+    min-width: 100%;
+    text-align: center;
 }
 
 .post-item img {
-    width: 100%; /* Bildet tar opp hele bredden */
-    height: 450px; /* Fast høyde på bilder */
-    object-fit: cover; /* Dekker hele tilgjengelige område uten å strekke bildet */
-    border-radius: 12px; /* Runde hjørner på bilder */
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
-/* "Les mer"-knapp */
-.read-more {
-    margin-top: 20px;
-    background-color: #3b5998; /* Mørkeblå bakgrunn */
-    color: #fff;
-    border: none; /* Ingen kantlinje */
-    padding: 12px 30px; /* Padding rundt teksten */
-    border-radius: 30px; /* Runde hjørner på knappen */
-    font-size: 18px; /* Størrelse på tekst */
-    cursor: pointer; /* Markør endres til hånd */
-    transition: background-color 0.3s ease; /* Glatt overgang på hover */
-}
-
-/* Hover-effekt for "Les mer"-knappen */
-.read-more:hover {
-    background-color: #333; 
-}
-
-/* Navigasjonsknapper for carousel */
-.carousel-control {
-    background-color: rgba(0, 0, 0, 0.6); /* Mørk gjennomsiktig bakgrunn */
-    color: #fff; /* Hvit pil */
-    border: none;
-    padding: 20px; /* Stor knapp */
-    font-size: 36px; /* Stor pil */
-    font-weight: bold; /* Fet pil */
-    position: absolute; /* Posisjonerer knappen over carousel */
-    top: 50%; /* Plasserer knappen i midten av carousel vertikalt */
-    transform: translateY(-50%); /* Justerer vertikal plassering */
-    transition: background-color 0.3s ease; /* Glatt overgang ved hover */
-    border-radius: 50%; /* Runde knapper */
-    z-index: 1; /* Sørger for at knappene vises over innholdet */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
-}
-
-/* Plassering av venstre knapp */
-.carousel-control.prev {
-    left: -50px; /* Plasserer venstre knapp utenfor carousel */
-}
-
-/* Plassering av høyre knapp */
-.carousel-control.next {
-    right: -50px; /* Plasserer høyre knapp utenfor carousel */
-}
-
-/* Hover-effekt for knappene */
-.carousel-control:hover {
-    background-color: rgba(0, 0, 0, 0.8); /* Mørkere bakgrunn på hover */
-}
-
-/* Responsiv styling */
-@media (max-width: 768px) {
-    .post-item img {
-        height: 300px; /* Mindre høyde for bilder på små skjermer */
-    }
-
-    .carousel-control {
-        padding: 15px; /* Mindre knapper på små skjermer */
-        font-size: 28px; /* Mindre tekststørrelse på knapper */
-    }
-
-    .carousel-control.prev {
-        left: -30px; /* Mindre avstand for venstre knapp */
-    }
-
-    .carousel-control.next {
-        right: -30px; /* Mindre avstand for høyre knapp */
-    }
-}
-
-/* Grid-oppsett for miniatyrbilder */
-.thumbnail-grid h2 {
-    font-size: 28px;
+/* Thumbnail Grid */
+.thumbnail-grid {
+    padding: 20px 50px;
     text-align: center;
-    margin-top: 60px;
-    margin-bottom: 30px;
-    color: #333;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Tilpasser kolonner basert på skjermstørrelse */
-    gap: 30px;
-    justify-items: center;
-    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 10px;
 }
 
 .grid-item {
     position: relative;
-    transition: transform 0.3s ease; /* Glatt overgang ved hover */
 }
 
-/* Hover-effekt på miniatyrbilder */
-.grid-item:hover {
-    transform: translateY(-5px); /* Flytt bildet litt opp på hover */
-}
-
-/* Styling for miniatyrbilder */
 .grid-item img {
     width: 100%;
-    height: 150px; /* Fast høyde på miniatyrbilder */
-    object-fit: cover; /* Bildet fyller hele rammen uten å forvrenge det */
-    border-radius: 12px; /* Runde hjørner på miniatyrbilder */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtil skygge for dybde */
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
-/* Footer */
-footer {
-    background-color: #3b5998; /* Blå bakgrunn */
-    padding: 20px 0; /* Padding rundt innholdet */
-    color: #fff; 
-    text-align: center; /* Sentrerer teksten */
-    margin-top: 60px; /* Avstand fra resten av innholdet */
-    font-size: 14px; /* Mindre skriftstørrelse */
+.logout-btn {
+    background-color: #fff;
+    color: #4b6cb7;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 20px;
 }
 
-footer p {
-    margin: 0; /* Ingen margin i footer */
+.logout-btn:hover {
+    background-color: #f0f0f0;
+    color: #182848;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }

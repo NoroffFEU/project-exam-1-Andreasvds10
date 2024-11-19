@@ -88,3 +88,22 @@ footer {
     margin-top: 40px;
     font-size: 14px;
 }
+
+.logout-btn {
+    background-color: #fff;
+    color: #4b6cb7;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 20px;
+}
+
+.logout-btn:hover {
+    background-color: #f0f0f0;
+    color: #182848;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
