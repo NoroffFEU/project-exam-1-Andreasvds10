@@ -3,57 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HotView Labs Blog</title>
+    <title>HotView Labs - Blog</title>
     <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
+    <!-- Header Section -->
     <header>
         <div class="logo">
             <h1>HotView Labs</h1>
         </div>
         <nav>
-            <a href="/html/aboutUs.html ">About Us</a>
+            <a href="/html/index.html">Home</a>
+            <a href="/html/aboutUs.html">About Us</a>
             <a href="/html/contact.html">Contact</a>
-            <a href="/html/account/login.html" class="signIn-Button">Sign In</a>
-      
-
+            <a href="/html/post/createPost.html" id="create-post-btn" style="display: none;">Create Post</a> <!-- Hidden by default -->
+            <a href="/html/account/login.html" id="auth-btn">Login</a> <!-- Default to login -->
         </nav>
     </header>
 
+    <!-- Main Content -->
     <main>
-        <div id="loading" style="display: none;">Loading posts...</div>
-        
-        <section class="intro">
-            <p>Welcome to the <strong>HotView Labs Blog</strong>, your gateway to the cutting edge of Tech <strong>Research And Development</strong>. Dive into the latest trends, breakthroughs, and expert insights as we navigate the ever-evolving landscape of technology.</p>
+        <section class="welcome">
+            <h2>Welcome to HotView Labs Blog</h2>
+            <p>Discover the latest tech trends and insights with our articles. Stay ahead in the world of innovation.</p>
         </section>
 
-        <section class="latest-post">
-            <h2>Latest Post</h2>
-            <div class="post-carousel">
+        <!-- Featured Posts Carousel -->
+        <section class="featured-posts">
+            <h2>Featured Posts</h2>
+            <div class="carousel">
                 <button class="carousel-control prev">&larr;</button>
                 <div class="carousel-window">
                     <div class="posts">
-                       
-                        <!-- More carousel items can go here -->
+                        <!-- Carousel items dynamically loaded here -->
                     </div>
                 </div>
                 <button class="carousel-control next">&rarr;</button>
             </div>
         </section>
-        
 
-        <section class="thumbnail-grid">
-            <h2>Recently Posted</h2>
+        <!-- Recent Posts Grid -->
+        <section class="recent-posts">
+            <h2>Recent Posts</h2>
             <div class="grid">
-                <!-- Thumbnails will be dynamically loaded here -->
-            </div> 
+                <!-- Recent post thumbnails dynamically loaded here -->
+            </div>
         </section>
     </main>
 
+    <!-- Footer Section -->
     <footer>
-        <p>Contact Us: Info@hotviewblog.com | Phone: 123-456-7890</p>
+        <p>Contact Us: info@hotviewblog.com | Phone: 123-456-7890</p>
     </footer>
-    <script type="module" src="js/config.js"></script>
-    <script type="module" src="js/fetchPosts.js"></script>
+
+    <!-- JavaScript -->
+    <script type="module">
+        import { fetchPosts } from '/js/fetchPosts.js';
+
+        // Load posts dynamically
+        fetchPosts();
+
+        // Handle user login status
+        document.addEventListener('DOMContentLoaded', () => {
+            const createPostBtn = document.getElementById('create-post-btn');
+            const authBtn = document.getElementById('auth-btn');
+            const token = localStorage.getItem('accessToken'); // Check if the user is logged in
+
+            if (token) {
+                // User is logged in
+                createPostBtn.style.display = 'inline-block'; // Show Create Post button
+                authBtn.textContent = 'Logout'; // Change Login to Logout
+                authBtn.href = '#'; // Prevent navigation
+                authBtn.addEventListener('click', (event) => {
+                    event.preventDefault(); // Prevent default link behavior
+                    localStorage.removeItem('accessToken'); // Remove the access token
+                    alert('Logged out successfully.');
+                    location.href = '/html/account/login.html'; // Redirect to login
+                });
+            } else {
+                // User is not logged in
+                createPostBtn.style.display = 'none'; // Hide Create Post button
+                authBtn.textContent = 'Login'; // Default to Login
+                authBtn.href = '/html/account/login.html'; // Redirect to login page
+            }
+        });
+    </script>
 </body>
 </html>

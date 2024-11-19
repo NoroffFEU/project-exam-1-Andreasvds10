@@ -15,6 +15,7 @@
         <nav>
             <a href="/html/index.html">Home</a>
             <a href="/html/aboutUs.html">About Us</a>
+            <a id="auth-btn" href="/html/account/login.html">Login</a>
         </nav>
     </header>
 
@@ -22,8 +23,12 @@
         <section class="about">
             <h2>Contact</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-            <img src="images/museum.jpg" alt="Museum Image">
+            <img id="dynamicImage" alt="Museum Image">
         </section>
+    </main>
+    <script src="../js/script.js"></script>
+    
+    
 
         <section class="about-text">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
@@ -33,5 +38,30 @@
     <footer>
         <p>Contact Us: info@hotviewblog.com | Phone: 123-456-7890</p>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const token = localStorage.getItem('accessToken');
+            const nav = document.querySelector('nav');
+    
+            if (token) {
+                // Create the Logout button
+                const logoutButton = document.createElement('button');
+                logoutButton.id = 'logout-btn';
+                logoutButton.textContent = 'Logout';
+                logoutButton.classList.add('logout-btn');
+    
+                // Add click event listener to Logout button
+                logoutButton.addEventListener('click', () => {
+                    localStorage.removeItem('accessToken');
+                    alert('Logged out successfully.');
+                    window.location.href = '/html/account/login.html';
+                });
+    
+                // Append Logout button to the navigation
+                nav.appendChild(logoutButton);
+            }
+        });
+    </script>
+    
 </body>
 </html>
