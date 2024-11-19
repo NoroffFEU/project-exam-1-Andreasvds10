@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HotView Labs Blog Post</title>
-    <link rel="stylesheet" href="/css/postIndex.css">
-    <link rel="icon" href="/favicon.ico">
+    <title>Create or Edit Blog Post</title>
+    <link rel="stylesheet" href="/css/createPost.css">
 </head>
 <body>
     <header>
@@ -13,21 +12,31 @@
             <h1>HotView Labs</h1>
         </div>
         <nav>
+            <a href="/html/index.html">Home</a>
             <a href="/html/aboutUs.html">About Us</a>
             <a href="/html/contact.html">Contact</a>
         </nav>
     </header>
 
     <main>
-        <section class="post-info">
-            <h2 id="title">Loading...</h2>
-            <p id="author">Loading...</p>
-            <p id="date">Loading...</p>
-        </section>
-
-        <section class="post-content">
-            <img id="banner" src="https://via.placeholder.com/600x300" alt="Blog Banner">
-            <div id="content">Loading content...</div>
+        <section class="post-editor">
+            <h2 id="form-title">Create Blog Post</h2>
+            <form id="post-form">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title" placeholder="Enter the blog title" required>
+                </div>
+                <div class="form-group">
+                    <label for="body">Content</label>
+                    <textarea id="body" name="body" placeholder="Enter the blog content" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="image-url">Image URL</label>
+                    <input type="text" id="image-url" name="image-url" placeholder="Enter the image URL">
+                </div>
+                <button type="submit" id="save-post-btn">Save Post</button>
+            </form>
+            <button id="delete-post-btn" style="display: none;">Delete Post</button>
         </section>
     </main>
 
@@ -35,15 +44,8 @@
         <p>Contact Us: info@hotviewblog.com | Phone: 123-456-7890</p>
     </footer>
 
-    <script type="module">
-        import { fetchPostById } from '/js/fetchPostById.js';
-        const postId = new URLSearchParams(window.location.search).get('id');
-        if (postId) {
-            fetchPostById(postId);
-        } else {
-            document.querySelector('#title').innerText = 'Post not found';
-        }
-       
+    <script type="module" src="/js/createPost.js">
+      
     document.addEventListener('DOMContentLoaded', () => {
         const token = localStorage.getItem('accessToken');
         const nav = document.querySelector('nav');
@@ -66,7 +68,7 @@
             nav.appendChild(logoutButton);
         }
     });
-
+</script>
 
     </script>
 </body>

@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
-
     <header>
         <div class="logo">
             <h1>HotView Labs</h1>
@@ -21,7 +20,7 @@
 
     <main>
         <section class="login-container">
-            <h2>LOGIN</h2>
+            <h2>Login</h2>
             <form id="login-form">
                 <div class="form-group">
                     <label for="email">Email</label>
@@ -35,6 +34,10 @@
 
                 <button class="login-btn" type="submit">Login</button>
             </form>
+            <div class="register-prompt">
+                <p>Don't have an account yet?</p>
+                <button class="register-btn" onclick="location.href='/html/account/register.html'">Register</button>
+            </div>
         </section>
     </main>
 
@@ -42,18 +45,36 @@
         <p>Contact Us: info@hotviewblog.com | Phone: 123-456-7890</p>
     </footer>
 
-    <!-- JavaScript to handle login functionality -->
     <script type="module">
         import { loginUser } from '/js/auth.js';
-
-        document.getElementById('login-form').addEventListener('submit', function(event) {
+    
+        // Handle the login form submission
+        document.getElementById('login-form').addEventListener('submit', async function (event) {
             event.preventDefault();
-
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-
-            loginUser({ email, password });
+    
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+    
+            try {
+                await loginUser({ email, password }); // Call the loginUser function
+            } catch (error) {
+                console.error('Error during login submission:', error);
+                alert('An unexpected error occurred. Please try again.');
+            }
+        });
+    
+        // Pre-fill the email field if an email is passed in the URL
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const email = urlParams.get('email');
+    
+            if (email) {
+                document.getElementById('email').value = email; // Pre-fill email field
+            }
         });
     </script>
+    
+    
+    
 </body>
 </html>
