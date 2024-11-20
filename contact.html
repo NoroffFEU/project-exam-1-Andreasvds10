@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +7,7 @@
     <link rel="stylesheet" href="/css/contact.css">
 </head>
 <body>
+    <!-- Header Section -->
     <header>
         <div class="logo">
             <h1>HotView Labs</h1>
@@ -15,53 +15,56 @@
         <nav>
             <a href="/html/index.html">Home</a>
             <a href="/html/aboutUs.html">About Us</a>
-            <a id="auth-btn" href="/html/account/login.html">Login</a>
+            <a href="/html/contact.html">Contact</a>
+            <a href="/html/post/createPost.html" id="create-post-btn" style="display: none;">Create Post</a> <!-- Hidden by default -->
+            <a href="/html/account/login.html" id="auth-btn">Login</a> <!-- Default to Login -->
         </nav>
     </header>
 
+    <!-- Main Content -->
     <main>
         <section class="about">
             <h2>Contact</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
             <img id="dynamicImage" alt="Museum Image">
         </section>
-    </main>
-    <script src="../js/script.js"></script>
-    
-    
 
         <section class="about-text">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
         </section>
     </main>
 
+    <!-- Footer Section -->
     <footer>
         <p>Contact Us: info@hotviewblog.com | Phone: 123-456-7890</p>
     </footer>
-    <script>
+
+    <!-- JavaScript -->
+    <script type="module">
+        // Handle user login status for the header
         document.addEventListener('DOMContentLoaded', () => {
-            const token = localStorage.getItem('accessToken');
-            const nav = document.querySelector('nav');
-    
+            const createPostBtn = document.getElementById('create-post-btn');
+            const authBtn = document.getElementById('auth-btn');
+            const token = localStorage.getItem('accessToken'); // Check if the user is logged in
+
             if (token) {
-                // Create the Logout button
-                const logoutButton = document.createElement('button');
-                logoutButton.id = 'logout-btn';
-                logoutButton.textContent = 'Logout';
-                logoutButton.classList.add('logout-btn');
-    
-                // Add click event listener to Logout button
-                logoutButton.addEventListener('click', () => {
-                    localStorage.removeItem('accessToken');
+                // User is logged in
+                createPostBtn.style.display = 'inline-block'; // Show Create Post button
+                authBtn.textContent = 'Logout'; // Change Login to Logout
+                authBtn.href = '#'; // Prevent navigation
+                authBtn.addEventListener('click', (event) => {
+                    event.preventDefault(); // Prevent default link behavior
+                    localStorage.removeItem('accessToken'); // Remove the access token
                     alert('Logged out successfully.');
-                    window.location.href = '/html/account/login.html';
+                    location.href = '/html/account/login.html'; // Redirect to login
                 });
-    
-                // Append Logout button to the navigation
-                nav.appendChild(logoutButton);
+            } else {
+                // User is not logged in
+                createPostBtn.style.display = 'none'; // Hide Create Post button
+                authBtn.textContent = 'Login'; // Default to Login
+                authBtn.href = '/html/account/login.html'; // Redirect to login page
             }
         });
     </script>
-    
 </body>
 </html>
