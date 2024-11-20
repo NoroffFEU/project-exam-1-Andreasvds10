@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/createPost.css">
 </head>
 <body>
+    <!-- Header Section -->
     <header>
         <div class="logo">
             <h1>HotView Labs</h1>
@@ -15,9 +16,12 @@
             <a href="/html/index.html">Home</a>
             <a href="/html/aboutUs.html">About Us</a>
             <a href="/html/contact.html">Contact</a>
+            <a href="/html/post/createPost.html" id="create-post-btn" style="display: none;">Create Post</a> <!-- Hidden by default -->
+            <a href="/html/account/login.html" id="auth-btn">Login</a> <!-- Default to Login -->
         </nav>
     </header>
 
+    <!-- Main Content -->
     <main>
         <section class="post-editor">
             <h2 id="form-title">Create Blog Post</h2>
@@ -25,6 +29,10 @@
                 <div class="form-group">
                     <label for="title">Title</label>
                     <input type="text" id="title" name="title" placeholder="Enter the blog title" required>
+                </div>
+                <div class="form-group">
+                    <label for="author">Author</label>
+                    <input type="text" id="author" name="author" placeholder="Enter the author's name" required>
                 </div>
                 <div class="form-group">
                     <label for="body">Content</label>
@@ -40,36 +48,51 @@
         </section>
     </main>
 
+    <!-- Footer Section -->
     <footer>
         <p>Contact Us: info@hotviewblog.com | Phone: 123-456-7890</p>
     </footer>
 
-    <script type="module" src="/js/createPost.js">
-      
-    document.addEventListener('DOMContentLoaded', () => {
-        const token = localStorage.getItem('accessToken');
-        const nav = document.querySelector('nav');
+    <!-- JavaScript -->
+    <script type="module">
+        // Handle user login status for the header
+        document.addEventListener('DOMContentLoaded', () => {
+            const createPostBtn = document.getElementById('create-post-btn');
+            const authBtn = document.getElementById('auth-btn');
+            const token = localStorage.getItem('accessToken'); // Check if the user is logged in
 
-        if (token) {
-            // Create the Logout button
-            const logoutButton = document.createElement('button');
-            logoutButton.id = 'logout-btn';
-            logoutButton.textContent = 'Logout';
-            logoutButton.classList.add('logout-btn');
+            if (token) {
+                // User is logged in
+                createPostBtn.style.display = 'inline-block'; // Show Create Post button
+                authBtn.textContent = 'Logout'; // Change Login to Logout
+                authBtn.href = '#'; // Prevent navigation
+                authBtn.addEventListener('click', (event) => {
+                    event.preventDefault(); // Prevent default link behavior
+                    localStorage.removeItem('accessToken'); // Remove the access token
+                    alert('Logged out successfully.');
+                    location.href = '/html/account/login.html'; // Redirect to login
+                });
+            } else {
+                // User is not logged in
+                createPostBtn.style.display = 'none'; // Hide Create Post button
+                authBtn.textContent = 'Login'; // Default to Login
+                authBtn.href = '/html/account/login.html'; // Redirect to login page
+            }
+        });
 
-            // Add click event listener to Logout button
-            logoutButton.addEventListener('click', () => {
-                localStorage.removeItem('accessToken');
-                alert('Logged out successfully.');
-                window.location.href = '/html/account/login.html';
-            });
+        // Handle the post form submission
+        document.getElementById('post-form').addEventListener('submit', function (event) {
+            event.preventDefault();
 
-            // Append Logout button to the navigation
-            nav.appendChild(logoutButton);
-        }
-    });
-</script>
+            const title = document.getElementById('title').value.trim();
+            const author = document.getElementById('author').value.trim();
+            const body = document.getElementById('body').value.trim();
+            const imageUrl = document.getElementById('image-url').value.trim();
 
+            // Add logic to save the post (e.g., send to API)
+            console.log('Post submitted:', { title, author, body, imageUrl });
+            alert('Post saved successfully!');
+        });
     </script>
 </body>
 </html>

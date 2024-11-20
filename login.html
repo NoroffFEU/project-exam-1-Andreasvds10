@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
+    <!-- Dynamic Header Section -->
     <header>
         <div class="logo">
             <h1>HotView Labs</h1>
@@ -15,6 +16,8 @@
             <a href="/html/index.html">Home</a>
             <a href="/html/aboutUs.html">About Us</a>
             <a href="/html/contact.html">Contact</a>
+            <a href="/html/post/createPost.html" id="create-post-btn" style="display: none;">Create Post</a> <!-- Hidden by default -->
+            <a href="/html/account/login.html" id="auth-btn">Login</a> <!-- Default to Login -->
         </nav>
     </header>
 
@@ -45,16 +48,17 @@
         <p>Contact Us: info@hotviewblog.com | Phone: 123-456-7890</p>
     </footer>
 
+    <!-- JavaScript -->
     <script type="module">
         import { loginUser } from '/js/auth.js';
-    
+
         // Handle the login form submission
         document.getElementById('login-form').addEventListener('submit', async function (event) {
             event.preventDefault();
-    
+
             const email = document.getElementById('email').value.trim();
             const password = document.getElementById('password').value.trim();
-    
+
             try {
                 await loginUser({ email, password }); // Call the loginUser function
             } catch (error) {
@@ -62,19 +66,39 @@
                 alert('An unexpected error occurred. Please try again.');
             }
         });
-    
+
         // Pre-fill the email field if an email is passed in the URL
         document.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
             const email = urlParams.get('email');
-    
+
             if (email) {
                 document.getElementById('email').value = email; // Pre-fill email field
             }
+
+            // Handle user login status for the header
+            const createPostBtn = document.getElementById('create-post-btn');
+            const authBtn = document.getElementById('auth-btn');
+            const token = localStorage.getItem('accessToken'); // Check if the user is logged in
+
+            if (token) {
+                // User is logged in
+                createPostBtn.style.display = 'inline-block'; // Show Create Post button
+                authBtn.textContent = 'Logout'; // Change Login to Logout
+                authBtn.href = '#'; // Prevent navigation
+                authBtn.addEventListener('click', (event) => {
+                    event.preventDefault(); // Prevent default link behavior
+                    localStorage.removeItem('accessToken'); // Remove the access token
+                    alert('Logged out successfully.');
+                    location.href = '/html/account/login.html'; // Redirect to login
+                });
+            } else {
+                // User is not logged in
+                createPostBtn.style.display = 'none'; // Hide Create Post button
+                authBtn.textContent = 'Login'; // Default to Login
+                authBtn.href = '/html/account/login.html'; // Redirect to login page
+            }
         });
     </script>
-    
-    
-    
 </body>
 </html>
