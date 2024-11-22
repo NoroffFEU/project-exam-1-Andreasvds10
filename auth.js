@@ -11,16 +11,21 @@ export async function loginUser(credentials) {
 
         if (response.ok && responseData.data && responseData.data.accessToken) {
             const accessToken = responseData.data.accessToken;
-            const role = responseData.data.role; // Get the user's role
+            const userName = responseData.data.name || responseData.data.email.split('@')[0]; // Extract username
+            const role = responseData.data.role; // Optional role
 
+            console.log(accessToken);
+            
+            // Store in localStorage
             localStorage.setItem('accessToken', accessToken);
-            localStorage.setItem('userRole', role); // Store the role locally
+            localStorage.setItem('userName', userName); // Save the username
+            localStorage.setItem('userRole', role);
 
-            alert(`Logged in successfully as ${role}`);
-            window.location.href = '/html/index.html'; // Redirect to index.html
+            alert(`Logged in successfully as ${userName}`);
+            window.location.href = '/html/index.html'; // Redirect to index page
         } else {
             const errorMessage =
-                responseData.message || 'Invalid login tokens. Please check your credentials.';
+                responseData.message || 'Invalid login credentials. Please try again.';
             alert(errorMessage);
             console.error('Login failed:', responseData);
         }
@@ -30,13 +35,11 @@ export async function loginUser(credentials) {
     }
 }
 
-
-
 export async function registerUser(details) {
     const payload = {
         name: details.fullName.replace(/\s+/g, '_').trim(), // Replace spaces with underscores
-        email: details.email.trim(), // Trim leading/trailing spaces
-        password: details.password, // Use password as entered
+        email: details.email.trim(), // Trim whitespace
+        password: details.password, // Pass the password as-is
     };
 
     console.log('Payload being sent:', payload);
@@ -53,19 +56,10 @@ export async function registerUser(details) {
 
         if (response.ok) {
             alert('Registration successful! You can now log in.');
-            console.log('User registered successfully:', data);
         } else {
-            // Handle errors more gracefully
             const errorMessage = data.errors?.[0]?.message || 'Registration failed.';
             alert(errorMessage);
             console.error('Registration Error:', errorMessage);
-
-            // Debugging common issues
-            if (errorMessage.includes('Profile already exists')) {
-                console.log(
-                    'Try using a completely unique name and email to avoid conflicts with existing profiles.'
-                );
-            }
         }
     } catch (error) {
         console.error('Error during registration:', error);
