@@ -1,10 +1,10 @@
-import { API_BASE } from '/js/config.js';
+import { API_BASE } from './config.js';
 
 // Helper: Generate headers with Authorization token
 function getHeaders() {
     const token = localStorage.getItem('accessToken');
     if (!token) {
-        alert('You must be logged in to access this page.');
+        alert('You must be logged in to create a post.');
         window.location.href = '/html/account/login.html';
         return null;
     }
@@ -14,32 +14,16 @@ function getHeaders() {
     };
 }
 
-// Fetch logged-in user and set author field
-async function getUserName() {
-    const userName = localStorage.getItem('userName');
-    if (userName) {
-        document.getElementById('author').value = userName;
-    } else {
-        alert('You must be logged in to create a post.');
-        window.location.href = '/html/account/login.html';
-    }
-}
-
-// Populate the form when the page loads
-document.addEventListener('DOMContentLoaded', () => {
-    getUserName();
-});
-
 // Handle form submission
-document.getElementById('post-form').addEventListener('submit', async (event) => {
+export async function submitPost(event) {
     event.preventDefault();
 
-    const saveButton = document.getElementById('save-post-btn');
+    const saveButton = event.target.querySelector('button[type="submit"]');
     saveButton.disabled = true;
 
     const postData = {
         title: document.getElementById('title').value.trim(),
-        body: document.getElementById('body').value.trim(),
+        body: document.getElementById('content').value.trim(),
         media: {
             url: document.getElementById('image-url').value.trim(),
             alt: "Post image",
@@ -47,7 +31,7 @@ document.getElementById('post-form').addEventListener('submit', async (event) =>
         author: document.getElementById('author').value.trim(),
     };
 
-    if (!postData.title || !postData.media.url) {
+    if (!postData.title || !postData.body || !postData.media.url) {
         alert('Please fill in all required fields.');
         saveButton.disabled = false;
         return;
@@ -63,9 +47,9 @@ document.getElementById('post-form').addEventListener('submit', async (event) =>
             body: JSON.stringify(postData),
         });
 
-        const responseData = await response.json();
         if (!response.ok) {
-            throw new Error(responseData.errors?.[0]?.message || 'Failed to create post.');
+            const errorData = await response.json();
+            throw new Error(errorData.errors?.[0]?.message || 'Failed to create post.');
         }
 
         alert('Post created successfully!');
@@ -76,4 +60,4 @@ document.getElementById('post-form').addEventListener('submit', async (event) =>
     } finally {
         saveButton.disabled = false;
     }
-});
+}

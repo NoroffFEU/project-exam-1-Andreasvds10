@@ -21,6 +21,14 @@
         </nav>
     </header>
 
+    <!-- Welcome Section -->
+    <section class="welcome">
+        <div class="banner">
+            <h2>Create or Edit Blog Post</h2>
+            <p>Share your insights with the HotView Labs community.</p>
+        </div>
+    </section>
+
     <!-- Main Content -->
     <main>
         <section class="post-editor">
@@ -49,10 +57,41 @@
 
     <!-- Footer Section -->
     <footer>
-        <p>Contact Us: info@hotviewblog.com | Phone: 123-456-7890</p>
+        <p>&copy; 2024 HotView Labs. All Rights Reserved.</p>
     </footer>
+</body>
+</html>
+
 
     <!-- JavaScript -->
-    <script type="module" src="/js/createPost.js"></script>
+    <script type="module">
+        import { fetchPosts } from '/js/fetchPosts.js';
+
+        // Load posts dynamically
+        fetchPosts();
+
+        // Handle user login status
+        document.addEventListener('DOMContentLoaded', () => {
+            const createPostBtn = document.getElementById('create-post-btn');
+            const authBtn = document.getElementById('auth-btn');
+            const token = localStorage.getItem('accessToken');
+
+            if (token) {
+                createPostBtn.style.display = 'inline-block';
+                authBtn.textContent = 'Logout';
+                authBtn.href = '#';
+                authBtn.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    localStorage.removeItem('accessToken');
+                    alert('Logged out successfully.');
+                    location.href = '/html/account/login.html';
+                });
+            } else {
+                createPostBtn.style.display = 'none';
+                authBtn.textContent = 'Login';
+                authBtn.href = '/html/account/login.html';
+            }
+        });
+    </script>
 </body>
 </html>

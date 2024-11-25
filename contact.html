@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HotView Labs - Contact</title>
+    <title>Contact Us</title>
     <link rel="stylesheet" href="/css/contact.css">
 </head>
 <body>
@@ -15,54 +15,77 @@
         <nav>
             <a href="/html/index.html">Home</a>
             <a href="/html/aboutUs.html">About Us</a>
-            <a href="/html/contact.html">Contact</a>
-            <a href="/html/post/createPost.html" id="create-post-btn" style="display: none;">Create Post</a> <!-- Hidden by default -->
-            <a href="/html/account/login.html" id="auth-btn">Login</a> <!-- Default to Login -->
+            <a href="/html/contact.html" class="active">Contact</a>
+            <a href="/html/post/createPost.html" id="create-post-btn" style="display: none;">Create Post</a>
+            <a href="/html/account/login.html" id="auth-btn">Login</a>
         </nav>
     </header>
 
-    <!-- Main Content -->
-    <main>
-        <section class="about">
-            <h2>Contact</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-            <img id="dynamicImage" alt="Museum Image">
-        </section>
+    <!-- Welcome Section -->
+    <section class="welcome">
+        <div class="banner">
+            <h2>Contact Us</h2>
+            <p>Your trusted partner in innovation. Reach out to us!</p>
+        </div>
+    </section>
 
-        <section class="about-text">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-        </section>
-    </main>
+    <!-- Contact Information Section -->
+    <section class="contact-info">
+        <h2>Contact Information</h2>
+        <div class="info">
+            <div class="info-item">
+                <h3>Email</h3>
+                <p><a href="mailto:info@hotviewlabs.com">info@hotviewlabs.com</a></p>
+            </div>
+            <div class="info-item">
+                <h3>Phone</h3>
+                <p><a href="tel:+1234567890">+1 234 567 890</a></p>
+            </div>
+            <div class="info-item">
+                <h3>Address</h3>
+                <p>123 Innovation Drive, Tech City, Global HQ</p>
+            </div>
+            <div class="info-item">
+                <h3>Social Media</h3>
+                <p>
+                    <a href="#" target="_blank">LinkedIn</a> |
+                    <a href="#" target="_blank">Twitter</a> |
+                    <a href="#" target="_blank">Facebook</a>
+                </p>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer Section -->
     <footer>
-        <p>Contact Us: info@hotviewblog.com | Phone: 123-456-7890</p>
+        <p>&copy; 2024 HotView Labs. All Rights Reserved.</p>
     </footer>
-
-    <!-- JavaScript -->
     <script type="module">
-        // Handle user login status for the header
+        import { fetchPosts } from '/js/fetchPosts.js';
+
+        // Load posts dynamically
+        fetchPosts();
+
+        // Handle user login status
         document.addEventListener('DOMContentLoaded', () => {
             const createPostBtn = document.getElementById('create-post-btn');
             const authBtn = document.getElementById('auth-btn');
-            const token = localStorage.getItem('accessToken'); // Check if the user is logged in
+            const token = localStorage.getItem('accessToken');
 
             if (token) {
-                // User is logged in
-                createPostBtn.style.display = 'inline-block'; // Show Create Post button
-                authBtn.textContent = 'Logout'; // Change Login to Logout
-                authBtn.href = '#'; // Prevent navigation
+                createPostBtn.style.display = 'inline-block';
+                authBtn.textContent = 'Logout';
+                authBtn.href = '#';
                 authBtn.addEventListener('click', (event) => {
-                    event.preventDefault(); // Prevent default link behavior
-                    localStorage.removeItem('accessToken'); // Remove the access token
+                    event.preventDefault();
+                    localStorage.removeItem('accessToken');
                     alert('Logged out successfully.');
-                    location.href = '/html/account/login.html'; // Redirect to login
+                    location.href = '/html/account/login.html';
                 });
             } else {
-                // User is not logged in
-                createPostBtn.style.display = 'none'; // Hide Create Post button
-                authBtn.textContent = 'Login'; // Default to Login
-                authBtn.href = '/html/account/login.html'; // Redirect to login page
+                createPostBtn.style.display = 'none';
+                authBtn.textContent = 'Login';
+                authBtn.href = '/html/account/login.html';
             }
         });
     </script>

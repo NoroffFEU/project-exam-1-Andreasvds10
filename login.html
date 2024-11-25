@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
-    <!-- Dynamic Header Section -->
+    <!-- Header Section -->
     <header>
         <div class="logo">
             <h1>HotView Labs</h1>
@@ -16,11 +16,20 @@
             <a href="/html/index.html">Home</a>
             <a href="/html/aboutUs.html">About Us</a>
             <a href="/html/contact.html">Contact</a>
-            <a href="/html/post/createPost.html" id="create-post-btn" style="display: none;">Create Post</a> <!-- Hidden by default -->
-            <a href="/html/account/login.html" id="auth-btn">Login</a> <!-- Default to Login -->
+            <a href="/html/post/createPost.html" id="create-post-btn" style="display: none;">Create Post</a>
+            <a href="/html/account/login.html" class="active">Login</a>
         </nav>
     </header>
 
+    <!-- Welcome Section -->
+    <section class="welcome">
+        <div class="banner">
+            <h2>Welcome Back</h2>
+            <p>Log in to access your personalized dashboard and stay updated.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
     <main>
         <section class="login-container">
             <h2>Login</h2>
@@ -44,9 +53,13 @@
         </section>
     </main>
 
+    <!-- Footer Section -->
     <footer>
-        <p>Contact Us: info@hotviewblog.com | Phone: 123-456-7890</p>
+        <p>&copy; 2024 HotView Labs. All Rights Reserved.</p>
     </footer>
+</body>
+</html>
+
 
     <!-- JavaScript -->
     <script type="module">

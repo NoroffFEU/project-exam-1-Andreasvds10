@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HotView Labs - About Us</title>
-    <link rel="stylesheet" href="/css/aboutUs.css">
+    <title>Blog Post Details - HotView Labs</title>
+    <link rel="stylesheet" href="/css/postIndex.css">
 </head>
 <body>
     <!-- Header Section -->
@@ -14,39 +14,33 @@
         </div>
         <nav>
             <a href="/html/index.html">Home</a>
-            <a href="/html/aboutUs.html" class="active">About Us</a>
+            <a href="/html/aboutUs.html">About Us</a>
             <a href="/html/contact.html">Contact</a>
             <a href="/html/post/createPost.html" id="create-post-btn" style="display: none;">Create Post</a>
             <a href="/html/account/login.html" id="auth-btn">Login</a>
         </nav>
     </header>
-
-    <!-- Welcome Section -->
-    <section class="welcome">
-        <div class="banner">
-            <h2>About Us</h2>
-            <p>Learn more about our vision and mission to empower the tech world.</p>
-        </div>
-    </section>
-
     <!-- Main Content -->
     <main>
-        <section class="about">
-            <h2>Who We Are</h2>
-            <p>At HotView Labs, we are a global team of innovators specializing in tech research and development. With a dedicated workforce of 30 talented professionals, we operate on a worldwide scale, delivering cutting-edge insights to empower tech leaders across industries.</p>
+        <section class="post-info">
+            <h2 id="title">Loading...</h2>
+            <p id="author">Loading...</p>
+            <p id="date">Loading...</p>
         </section>
 
-        <section class="about-text">
-            <p>Our mission is clear: to provide the most accurate and up-to-date insights that drive informed decision-making and fuel innovation. We are passionate about transforming data into actionable intelligence, helping businesses stay ahead in an ever-evolving tech landscape.</p>
-
-            <p>At HotView Labs, we believe in shaping the future of technology through precision, dedication, and a relentless pursuit of excellence.</p>
+        <section class="post-content">
+            <img id="banner" src="https://via.placeholder.com/600x300" alt="Blog Banner">
+            <div id="content">Loading content...</div>
         </section>
     </main>
 
     <!-- Footer Section -->
     <footer>
-        <p>&copy; 2024 HotView Labs. All Rights Reserved.</p>
+        <p>Contact Us: info@hotviewblog.com | Phone: 123-456-7890</p>
     </footer>
+
+
+    <!-- JavaScript -->
     <script type="module">
         import { fetchPosts } from '/js/fetchPosts.js';
 
