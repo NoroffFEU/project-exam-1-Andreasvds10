@@ -70,7 +70,7 @@ nav a.active {
 
 .welcome p {
     font-size: 18px;
-    color: #ddd;
+    color: #fff;
 }
 
 /* About Section */
@@ -93,7 +93,7 @@ nav a.active {
 
 .about p {
     font-size: 18px;
-    color: #ddd;
+    color: #fff;
     margin-bottom: 20px;
     line-height: 1.8;
 }
@@ -105,7 +105,7 @@ nav a.active {
     border-radius: 10px;
     margin: 30px auto;
     max-width: 80%;
-    color: #ddd;
+    color: #fff;
 }
 
 .about-text p {

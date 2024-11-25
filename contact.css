@@ -70,14 +70,14 @@ nav a.active {
 
 .welcome p {
     font-size: 18px;
-    color: #ddd;
+    color: #fff;
 }
 
 /* Contact Information Section */
 .contact-info {
     padding: 60px 10%;
     text-align: center;
-    background: rgba(0, 0, 0, 0.6); /* Transparent black background */
+    background: rgba(21, 20, 20, 0.6); /* Transparent black background */
     border-radius: 10px;
     margin: 30px auto;
     max-width: 80%;
@@ -116,14 +116,14 @@ nav a.active {
 
 .contact-info .info-item h3 {
     font-size: 20px;
-    color: #182848;
+    color: #061128;
     margin-bottom: 10px;
 }
 
 .contact-info .info-item p,
 .contact-info .info-item a {
     font-size: 16px;
-    color: #4b6cb7;
+    color: #42547e;
     margin: 0;
     text-decoration: none;
     transition: color 0.3s ease;
