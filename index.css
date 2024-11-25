@@ -49,22 +49,6 @@ nav a:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-.create-post {
-    background-color: #2a9d8f;
-}
-
-.create-post:hover {
-    background-color: #21867a;
-}
-
-.logout {
-    background-color: #e63946;
-}
-
-.logout:hover {
-    background-color: #d62828;
-}
-
 /* Welcome Section */
 .welcome {
     text-align: center;
@@ -84,21 +68,26 @@ nav a:hover {
 
 /* Featured Posts Carousel */
 .featured-posts {
-    padding: 40px 20px;
+    padding: 60px 20px;
     text-align: center;
+    background-color: #f9fafb;
+    border-top: 2px solid #ddd;
+    border-bottom: 2px solid #ddd;
 }
 
 .featured-posts h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
+    font-size: 32px;
+    margin: 40px 0 25px;
+    font-weight: bold;
+    color: #333;
 }
 
 .carousel {
     position: relative;
-    overflow: hidden;
+    overflow: hidden; /* Hide extra images */
     margin: 0 auto;
-    width: 80%;
-    max-width: 1200px;
+    width: 90%; /* Carousel width */
+    max-width: 800px; /* Limit maximum width */
     border-radius: 10px;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -106,27 +95,70 @@ nav a:hover {
 
 .carousel-window {
     display: flex;
-    overflow: hidden;
-    width: 100%;
+    overflow: hidden; /* Prevent overflow of extra content */
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%; /* Match carousel width */
 }
 
 .posts {
     display: flex;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out; /* Smooth slide effect */
+    width: calc(100% * 5); /* Adjust based on number of posts */
 }
 
 .post-item {
-    flex: 0 0 100%;
-    padding: 20px;
+    flex: 0 0 100%; /* Each item takes up the full width of the carousel */
+    max-width: 800px; /* Match the max-width of the carousel */
     text-align: center;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center align content */
+    justify-content: center; /* Center content vertically */
+    padding: 40px 20px; /* Add padding around the post */
 }
 
 .post-item img {
-    width: 100%;
+    width: 90%; /* Make the image slightly smaller */
+    max-width: 500px; /* Adjust the max size of the image */
     height: auto;
+    object-fit: cover;
     border-radius: 10px;
+    margin-bottom: 30px; /* Space below the image */
 }
 
+.post-item h3 {
+    font-size: 24px;
+    margin: 20px 0; /* Add more space above and below the title */
+    color: #333;
+}
+
+.post-item p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 25px; /* Add more space below the description */
+}
+
+.post-item a {
+    font-size: 16px;
+    font-weight: bold;
+    color: #4b6cb7;
+    text-decoration: none;
+    padding: 10px 20px; /* Add padding for a cleaner "Read more" */
+    border: 1px solid #4b6cb7; /* Optional border */
+    border-radius: 5px; /* Rounded edges */
+    transition: all 0.3s ease-in-out;
+}
+
+.post-item a:hover {
+    background-color: #4b6cb7;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Carousel Buttons */
 .carousel-control {
     position: absolute;
     top: 50%;
@@ -134,10 +166,11 @@ nav a:hover {
     background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
     font-size: 24px;
-    padding: 10px;
+    padding: 15px;
     border: none;
     border-radius: 50%;
     cursor: pointer;
+    z-index: 1000;
 }
 
 .carousel-control.prev {
@@ -152,27 +185,35 @@ nav a:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
+
+
+
 /* Recent Posts Grid */
 .recent-posts {
     padding: 40px 20px;
     text-align: center;
+    background-color: #fff;
 }
 
 .recent-posts h2 {
     font-size: 28px;
     margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #333;
 }
 
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    gap: 30px; /* Increase spacing between grid items */
     padding: 20px;
+    justify-content: center;
 }
 
 .grid-item {
-    background-color: #fff;
-    padding: 20px;
+    background-color: #f9fafb;
+    padding: 15px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -184,9 +225,12 @@ nav a:hover {
 }
 
 .grid-item img {
-    width: 100%;
-    height: auto;
+    width: 200px; /* Reduce image size in grid */
+    height: 130px;
+    object-fit: cover;
     border-radius: 10px;
+    display: block;
+    margin: 0 auto;
 }
 
 /* Footer Styling */
@@ -194,7 +238,6 @@ footer {
     background-color: #182848;
     color: #fff;
     text-align: center;
-    padding: 20px;
+    padding: 30px;
     margin-top: 40px;
 }
-

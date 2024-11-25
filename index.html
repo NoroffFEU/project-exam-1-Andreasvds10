@@ -16,8 +16,8 @@
             <a href="/html/index.html">Home</a>
             <a href="/html/aboutUs.html">About Us</a>
             <a href="/html/contact.html">Contact</a>
-            <a href="/html/post/createPost.html" id="create-post-btn" style="display: none;">Create Post</a> <!-- Hidden by default -->
-            <a href="/html/account/login.html" id="auth-btn">Login</a> <!-- Default to login -->
+            <a href="/html/post/createPost.html" id="create-post-btn" style="display: none;">Create Post</a>
+            <a href="/html/account/login.html" id="auth-btn">Login</a>
         </nav>
     </header>
 
@@ -67,24 +67,22 @@
         document.addEventListener('DOMContentLoaded', () => {
             const createPostBtn = document.getElementById('create-post-btn');
             const authBtn = document.getElementById('auth-btn');
-            const token = localStorage.getItem('accessToken'); // Check if the user is logged in
+            const token = localStorage.getItem('accessToken');
 
             if (token) {
-                // User is logged in
-                createPostBtn.style.display = 'inline-block'; // Show Create Post button
-                authBtn.textContent = 'Logout'; // Change Login to Logout
-                authBtn.href = '#'; // Prevent navigation
+                createPostBtn.style.display = 'inline-block';
+                authBtn.textContent = 'Logout';
+                authBtn.href = '#';
                 authBtn.addEventListener('click', (event) => {
-                    event.preventDefault(); // Prevent default link behavior
-                    localStorage.removeItem('accessToken'); // Remove the access token
+                    event.preventDefault();
+                    localStorage.removeItem('accessToken');
                     alert('Logged out successfully.');
-                    location.href = '/html/account/login.html'; // Redirect to login
+                    location.href = '/html/account/login.html';
                 });
             } else {
-                // User is not logged in
-                createPostBtn.style.display = 'none'; // Hide Create Post button
-                authBtn.textContent = 'Login'; // Default to Login
-                authBtn.href = '/html/account/login.html'; // Redirect to login page
+                createPostBtn.style.display = 'none';
+                authBtn.textContent = 'Login';
+                authBtn.href = '/html/account/login.html';
             }
         });
     </script>

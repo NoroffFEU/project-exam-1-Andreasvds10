@@ -11,18 +11,16 @@ export async function loginUser(credentials) {
 
         if (response.ok && responseData.data && responseData.data.accessToken) {
             const accessToken = responseData.data.accessToken;
-            const userName = responseData.data.name || responseData.data.email.split('@')[0]; // Extract username
-            const role = responseData.data.role; // Optional role
+            const userName = responseData.data.name || responseData.data.email.split('@')[0];
+            const role = responseData.data.role;
 
-            console.log(accessToken);
-            
             // Store in localStorage
             localStorage.setItem('accessToken', accessToken);
-            localStorage.setItem('userName', userName); // Save the username
+            localStorage.setItem('userName', userName);
             localStorage.setItem('userRole', role);
 
             alert(`Logged in successfully as ${userName}`);
-            window.location.href = '/html/index.html'; // Redirect to index page
+            window.location.href = '/html/index.html';
         } else {
             const errorMessage =
                 responseData.message || 'Invalid login credentials. Please try again.';
@@ -37,9 +35,9 @@ export async function loginUser(credentials) {
 
 export async function registerUser(details) {
     const payload = {
-        name: details.fullName.replace(/\s+/g, '_').trim(), // Replace spaces with underscores
-        email: details.email.trim(), // Trim whitespace
-        password: details.password, // Pass the password as-is
+        name: details.fullName.replace(/\s+/g, '_').trim(),
+        email: details.email.trim(),
+        password: details.password,
     };
 
     console.log('Payload being sent:', payload);
@@ -66,12 +64,3 @@ export async function registerUser(details) {
         alert('An unexpected error occurred. Please try again.');
     }
 }
-
-
-
-
-
-
-
-
-

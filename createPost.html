@@ -16,8 +16,8 @@
             <a href="/html/index.html">Home</a>
             <a href="/html/aboutUs.html">About Us</a>
             <a href="/html/contact.html">Contact</a>
-            <a href="/html/post/createPost.html" id="create-post-btn" style="display: none;">Create Post</a> <!-- Hidden by default -->
-            <a href="/html/account/login.html" id="auth-btn">Login</a> <!-- Default to Login -->
+            <a href="/html/post/createPost.html" id="create-post-btn" style="display: none;">Create Post</a>
+            <a href="/html/account/login.html" id="auth-btn">Login</a>
         </nav>
     </header>
 
@@ -32,7 +32,7 @@
                 </div>
                 <div class="form-group">
                     <label for="author">Author</label>
-                    <input type="text" id="author" name="author" placeholder="Author Name" required>
+                    <input type="text" id="author" name="author" placeholder="Author Name" readonly>
                 </div>
                 <div class="form-group">
                     <label for="body">Content</label>
@@ -40,11 +40,10 @@
                 </div>
                 <div class="form-group">
                     <label for="image-url">Image URL</label>
-                    <input type="text" id="image-url" name="image-url" placeholder="Enter the image URL">
+                    <input type="text" id="image-url" name="image-url" placeholder="Enter the image URL" required>
                 </div>
                 <button type="submit" id="save-post-btn">Save Post</button>
             </form>
-            <button id="delete-post-btn" style="display: none;">Delete Post</button>
         </section>
     </main>
 
@@ -53,7 +52,7 @@
         <p>Contact Us: info@hotviewblog.com | Phone: 123-456-7890</p>
     </footer>
 
-    <!-- Link to External JavaScript -->
+    <!-- JavaScript -->
     <script type="module" src="/js/createPost.js"></script>
 </body>
 </html>
