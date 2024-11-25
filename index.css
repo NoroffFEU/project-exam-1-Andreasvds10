@@ -8,20 +8,21 @@
 /* Body Styling */
 body {
     font-family: 'Open Sans', sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
+    background: url('https://www.firetide.com/static/8f70d95bb995cbec09dbd37725cdb8bd/f0081/hotview-pro-banner.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
     line-height: 1.6;
 }
 
 /* Header Styling */
 header {
-    background: linear-gradient(90deg, #4b6cb7, #182848);
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background for contrast */
     color: #fff;
     padding: 20px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .logo h1 {
@@ -52,34 +53,42 @@ nav a:hover {
 /* Welcome Section */
 .welcome {
     text-align: center;
-    padding: 40px 20px;
-    background-color: #e3edf7;
+    padding: 60px 20px;
+    background: rgba(0, 0, 0, 0.5); /* Transparent overlay */
+    color: #fff;
+    border-radius: 10px;
+    margin: 30px auto;
+    max-width: 80%;
 }
 
 .welcome h2 {
-    font-size: 32px;
-    margin-bottom: 10px;
+    font-size: 36px;
+    margin-bottom: 15px;
+    color: #fff;
 }
 
 .welcome p {
     font-size: 18px;
-    color: #555;
+    color: #ddd;
 }
 
 /* Featured Posts Carousel */
 .featured-posts {
     padding: 60px 20px;
     text-align: center;
-    background-color: #f9fafb;
-    border-top: 2px solid #ddd;
-    border-bottom: 2px solid #ddd;
+    background: rgba(0, 0, 0, 0.6); /* Transparent black background */
+    border-top: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    border-radius: 10px;
+    margin: 30px auto;
+    max-width: 80%;
 }
 
 .featured-posts h2 {
     font-size: 32px;
     margin: 40px 0 25px;
     font-weight: bold;
-    color: #333;
+    color: #fff;
 }
 
 .carousel {
@@ -95,50 +104,50 @@ nav a:hover {
 
 .carousel-window {
     display: flex;
-    overflow: hidden; /* Prevent overflow of extra content */
+    overflow: hidden;
     justify-content: center;
     align-items: center;
     position: relative;
-    width: 100%; /* Match carousel width */
+    width: 100%;
 }
 
 .posts {
     display: flex;
-    transition: transform 0.5s ease-in-out; /* Smooth slide effect */
+    transition: transform 0.5s ease-in-out;
     width: calc(100% * 5); /* Adjust based on number of posts */
 }
 
 .post-item {
-    flex: 0 0 100%; /* Each item takes up the full width of the carousel */
-    max-width: 800px; /* Match the max-width of the carousel */
+    flex: 0 0 100%;
+    max-width: 800px;
     text-align: center;
     margin: 0 auto;
     display: flex;
-    flex-direction: column; /* Stack content vertically */
-    align-items: center; /* Center align content */
-    justify-content: center; /* Center content vertically */
-    padding: 40px 20px; /* Add padding around the post */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
 }
 
 .post-item img {
-    width: 90%; /* Make the image slightly smaller */
-    max-width: 500px; /* Adjust the max size of the image */
+    width: 90%;
+    max-width: 500px;
     height: auto;
     object-fit: cover;
     border-radius: 10px;
-    margin-bottom: 30px; /* Space below the image */
+    margin-bottom: 30px;
 }
 
 .post-item h3 {
     font-size: 24px;
-    margin: 20px 0; /* Add more space above and below the title */
+    margin: 20px 0;
     color: #333;
 }
 
 .post-item p {
     font-size: 16px;
     color: #555;
-    margin-bottom: 25px; /* Add more space below the description */
+    margin-bottom: 25px;
 }
 
 .post-item a {
@@ -146,9 +155,9 @@ nav a:hover {
     font-weight: bold;
     color: #4b6cb7;
     text-decoration: none;
-    padding: 10px 20px; /* Add padding for a cleaner "Read more" */
-    border: 1px solid #4b6cb7; /* Optional border */
-    border-radius: 5px; /* Rounded edges */
+    padding: 10px 20px;
+    border: 1px solid #4b6cb7;
+    border-radius: 5px;
     transition: all 0.3s ease-in-out;
 }
 
@@ -166,11 +175,11 @@ nav a:hover {
     background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
     font-size: 24px;
-    padding: 15px;
+    padding: 10px;
     border: none;
     border-radius: 50%;
     cursor: pointer;
-    z-index: 1000;
+    z-index: 10;
 }
 
 .carousel-control.prev {
@@ -185,14 +194,14 @@ nav a:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-
-
-
 /* Recent Posts Grid */
 .recent-posts {
     padding: 40px 20px;
     text-align: center;
-    background-color: #fff;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    margin: 30px auto;
+    max-width: 80%;
 }
 
 .recent-posts h2 {
@@ -200,19 +209,19 @@ nav a:hover {
     margin-bottom: 20px;
     text-transform: uppercase;
     font-weight: bold;
-    color: #333;
+    color: #fff;
 }
 
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px; /* Increase spacing between grid items */
+    gap: 30px;
     padding: 20px;
     justify-content: center;
 }
 
 .grid-item {
-    background-color: #f9fafb;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent for contrast */
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -225,7 +234,7 @@ nav a:hover {
 }
 
 .grid-item img {
-    width: 200px; /* Reduce image size in grid */
+    width: 200px;
     height: 130px;
     object-fit: cover;
     border-radius: 10px;
@@ -235,7 +244,7 @@ nav a:hover {
 
 /* Footer Styling */
 footer {
-    background-color: #182848;
+    background: rgba(0, 0, 0, 0.7);
     color: #fff;
     text-align: center;
     padding: 30px;

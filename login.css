@@ -1,5 +1,4 @@
-
-/* Global reset */
+/* Global Reset */
 * {
     margin: 0;
     padding: 0;
@@ -9,98 +8,104 @@
 /* Body Styling */
 body {
     font-family: 'Open Sans', sans-serif;
-    background-color: #f0f4f7;
-    color: #333;
+    background: url('https://www.firetide.com/static/8f70d95bb995cbec09dbd37725cdb8bd/f0081/hotview-pro-banner.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
     line-height: 1.6;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
 }
 
 /* Header Styling */
 header {
-    background: linear-gradient(90deg, #4b6cb7, #182848);
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    color: #fff;
     padding: 20px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .logo h1 {
-    font-size: 30px;
-    font-weight: bold;
-    color: #fff;
+    font-size: 28px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    border: 2px solid #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.1);
 }
 
 nav {
     display: flex;
+    gap: 15px;
     align-items: center;
 }
 
 nav a {
-    margin-right: 20px;
     color: #fff;
     text-decoration: none;
-    font-size: 18px;
+    font-weight: bold;
     padding: 10px 20px;
-    transition: all 0.3s ease;
     border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
 }
 
-nav a:hover {
+nav a:hover,
+nav a.active {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Main Styling */
-main {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Welcome Section */
+.welcome {
+    text-align: center;
+    padding: 60px 20px;
+    background: rgba(0, 0, 0, 0.5); /* Transparent overlay */
+    color: #fff;
+    border-radius: 10px;
+    margin: 30px auto;
+    max-width: 80%;
 }
 
+.welcome h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.welcome p {
+    font-size: 18px;
+    color: #ddd;
+}
+
+/* Login Container */
 .login-container {
-    background-color: #d3e3f4;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
     padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     max-width: 400px;
     width: 100%;
+    margin: 30px auto;
     text-align: center;
 }
 
 .login-container h2 {
-    margin-bottom: 30px;
-    font-size: 24px;
-    color: #182848;
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #fff;
 }
 
 /* Form Styling */
 form {
     display: flex;
     flex-direction: column;
+    gap: 20px;
 }
 
-.form-group {
-    margin-bottom: 20px;
-}
-
-label {
-    font-size: 14px;
-    color: #333;
+.form-group label {
+    font-size: 16px;
+    color: #ddd;
+    text-align: left;
     display: block;
-    margin-bottom: 5px;
 }
 
-input {
+.form-group input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -111,63 +116,11 @@ input {
 /* Button Styling */
 .login-btn {
     background-color: #4b6cb7;
-    color: white;
+    color: #fff;
     padding: 10px;
     border: none;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 10px;
+    transition: background-color 0.
 }
-
-.login-btn:hover {
-    background-color: #182848;
-}
-
-/* Forgot Password */
-.forgot-password {
-    margin-top: 15px;
-    font-size: 14px;
-}
-
-.forgot-password a {
-    color: #182848;
-    text-decoration: none;
-}
-
-.forgot-password a:hover {
-    text-decoration: underline;
-}
-
-/* Divider Styling */
-.divider {
-    height: 1px;
-    background-color: #ccc;
-    margin: 20px 0;
-}
-
-/* Sign Up */
-.need-account {
-    font-size: 14px;
-}
-
-.need-account a {
-    color: #182848;
-    text-decoration: none;
-}
-
-.need-account a:hover {
-    text-decoration: underline;
-}
-
-/* Footer Styling */
-footer {
-    background-color: #b4c9e7;
-    padding: 20px 0;
-    color: #333;
-    text-align: center;
-    font-size: 14px;
-    width: 100%;
-}
-
