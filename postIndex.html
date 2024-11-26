@@ -47,6 +47,19 @@
 
     <script type="module" src="/js/postIndex.js">
 
+document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const postId = params.get('id');
+
+            if (postId) {
+                fetchPostById(postId);  // Fetch the post details by post ID
+            } else {
+                document.getElementById('post-details').innerHTML = `
+                    <p>No post ID provided.</p>
+                `;
+            }
+        });
+
 
         // Load posts dynamically
         fetchPosts();
