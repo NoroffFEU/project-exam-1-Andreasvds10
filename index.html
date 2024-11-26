@@ -23,31 +23,28 @@
 
     <!-- Main Content -->
     <main>
+        <!-- Welcome Section -->
         <section class="welcome">
             <h2>Welcome to HotView Labs Blog</h2>
             <p>Discover the latest tech trends and insights with our articles. Stay ahead in the world of innovation.</p>
         </section>
-
+        
         <!-- Featured Posts Carousel -->
         <section class="featured-posts">
             <h2>Featured Posts</h2>
             <div class="carousel">
                 <button class="carousel-control prev">&larr;</button>
                 <div class="carousel-window">
-                    <div class="posts">
-                        <!-- Carousel items dynamically loaded here -->
-                    </div>
+                    <div class="posts"></div>
                 </div>
                 <button class="carousel-control next">&rarr;</button>
             </div>
         </section>
-
+        
         <!-- Recent Posts Grid -->
         <section class="recent-posts">
             <h2>Recent Posts</h2>
-            <div class="grid">
-                <!-- Recent post thumbnails dynamically loaded here -->
-            </div>
+            <div class="grid"></div>
         </section>
     </main>
 
@@ -59,11 +56,8 @@
     <!-- JavaScript -->
     <script type="module">
         import { fetchPosts } from '/js/fetchPosts.js';
-
-        // Load posts dynamically
         fetchPosts();
 
-        // Handle user login status
         document.addEventListener('DOMContentLoaded', () => {
             const createPostBtn = document.getElementById('create-post-btn');
             const authBtn = document.getElementById('auth-btn');

@@ -16,9 +16,9 @@ body {
 
 /* Header Styling */
 header {
-    background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background for contrast */
+    padding: 15px 30px;
+    background: rgba(0, 0, 0, 0.7);
     color: #fff;
-    padding: 20px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -26,24 +26,17 @@ header {
 }
 
 .logo h1 {
-    font-size: 28px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-nav {
-    display: flex;
-    gap: 15px;
-    align-items: center;
+    font-size: 22px;
 }
 
 nav a {
     color: #fff;
+    font-size: 14px;
     text-decoration: none;
-    font-weight: bold;
-    padding: 10px 20px;
+    padding: 8px 15px;
+    margin: 0 5px;
     border-radius: 5px;
-    transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.3s ease;
 }
 
 nav a:hover {
@@ -53,200 +46,208 @@ nav a:hover {
 /* Welcome Section */
 .welcome {
     text-align: center;
-    padding: 60px 20px;
-    background: rgba(0, 0, 0, 0.5); /* Transparent overlay */
-    color: #fff;
+    padding: 40px 15px;
+    background: rgba(0, 0, 0, 0.5);
+    max-width: 90%;
+    margin: 20px auto;
     border-radius: 10px;
-    margin: 30px auto;
-    max-width: 80%;
 }
 
 .welcome h2 {
-    font-size: 36px;
-    margin-bottom: 15px;
-    color: #fff;
+    font-size: 28px;
 }
 
 .welcome p {
-    font-size: 18px;
-    color: #ddd;
+    font-size: 16px;
 }
 
-/* Featured Posts Carousel */
+/* Carousel */
 .featured-posts {
-    padding: 60px 20px;
+    padding: 20px;
     text-align: center;
-    background: rgba(0, 0, 0, 0.6); /* Transparent black background */
-    border-top: 2px solid #fff;
-    border-bottom: 2px solid #fff;
-    border-radius: 10px;
-    margin: 30px auto;
-    max-width: 80%;
-}
-
-.featured-posts h2 {
-    font-size: 32px;
-    margin: 40px 0 25px;
-    font-weight: bold;
-    color: #fff;
+    max-width: 800px;
+    margin: 20px auto;
 }
 
 .carousel {
     position: relative;
-    overflow: hidden; /* Hide extra images */
-    margin: 0 auto;
-    width: 90%; /* Carousel width */
-    max-width: 800px; /* Limit maximum width */
+    overflow: hidden;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #000;
     border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .carousel-window {
     display: flex;
-    overflow: hidden;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 100%;
+    transition: transform 0.5s ease-in-out;
 }
 
 .posts {
     display: flex;
-    transition: transform 0.5s ease-in-out;
-    width: calc(100% * 5); /* Adjust based on number of posts */
+    flex-wrap: nowrap;
 }
 
-.post-item {
+.carousel-item {
     flex: 0 0 100%;
-    max-width: 800px;
     text-align: center;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 20px;
+    position: relative;
 }
 
-.post-item img {
-    width: 90%;
-    max-width: 500px;
+.carousel-item img {
+    width: 100%;
     height: auto;
-    object-fit: cover;
     border-radius: 10px;
-    margin-bottom: 30px;
 }
 
-.post-item h3 {
-    font-size: 24px;
-    margin: 20px 0;
-    color: #333;
-}
-
-.post-item p {
-    font-size: 16px;
-    color: #555;
-    margin-bottom: 25px;
-}
-
-.post-item a {
-    font-size: 16px;
-    font-weight: bold;
-    color: #4b6cb7;
-    text-decoration: none;
-    padding: 10px 20px;
-    border: 1px solid #4b6cb7;
-    border-radius: 5px;
-    transition: all 0.3s ease-in-out;
-}
-
-.post-item a:hover {
-    background-color: #4b6cb7;
+.carousel-info {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.8));
     color: #fff;
-    text-decoration: none;
+    text-align: left;
+    border-radius: 0 0 10px 10px;
 }
 
-/* Carousel Buttons */
+/* Navigation Buttons */
 .carousel-control {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    font-size: 24px;
-    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: #000;
     border: none;
     border-radius: 50%;
+    padding: 15px;
     cursor: pointer;
     z-index: 10;
+    font-size: 18px;
 }
 
 .carousel-control.prev {
-    left: 10px;
+    left: 15px;
 }
 
 .carousel-control.next {
-    right: 10px;
+    right: 15px;
 }
 
 .carousel-control:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(255, 255, 255, 0.5);
 }
+/* "Read More" Button Styling in Carousel */
+.carousel-item .read-more {
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #1e2d4f; /* Purple button background */
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 15px; /* Ensures the button is placed lower */
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Ensures button text is centered */
+}
+
+.carousel-item .read-more:hover {
+    background-color: #35548a; /* Darker shade on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Focus State */
+.carousel-item .read-more:focus {
+    outline: none;
+    box-shadow: 0 0 8px 2px #4b6cb7; /* Focus ring for accessibility */
+}
+
 
 /* Recent Posts Grid */
 .recent-posts {
-    padding: 40px 20px;
+    padding: 20px;
     text-align: center;
-    background: rgba(0, 0, 0, 0.6);
-    border-radius: 10px;
-    margin: 30px auto;
-    max-width: 80%;
+    max-width: 90%;
+    margin: 20px auto;
 }
 
-.recent-posts h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    font-weight: bold;
-    color: #fff;
-}
-
+/* Grid Layout */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    gap: 20px;
     padding: 20px;
-    justify-content: center;
 }
 
+/* Grid Item Styling */
 .grid-item {
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent for contrast */
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: #fff; /* Clean white background */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
     text-align: center;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .grid-item:hover {
     transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
+/* Image Styling */
 .grid-item img {
-    width: 200px;
-    height: 130px;
+    width: 100%;
+    height: 150px;
     object-fit: cover;
-    border-radius: 10px;
-    display: block;
-    margin: 0 auto;
 }
 
-/* Footer Styling */
-footer {
-    background: rgba(0, 0, 0, 0.7);
+/* Title Styling */
+.grid-item h4 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin: 15px 0 10px;
+}
+
+/* Description Text */
+.grid-item p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+/* "Read More" Button */
+/* Read More Button Styling */
+.grid-item .read-more {
+    font-size: 14px;
+    font-weight: bold;
     color: #fff;
-    text-align: center;
-    padding: 30px;
-    margin-top: 40px;
+    background-color: #1e2f57; /* Purple button background */
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 15px; /* Ensures the button is placed lower, with consistent spacing */
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-align: center; /* Ensures button text is centered */
+}
+
+.grid-item .read-more:hover {
+    background-color: #35548a; /* Darker shade on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Focus State */
+.grid-item .read-more:focus {
+    outline: none;
+    box-shadow: 0 0 8px 2px #202e4e; /* Focus ring for accessibility */
 }

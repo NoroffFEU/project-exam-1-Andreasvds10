@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Post Details - HotView Labs</title>
+    <title>Post Details</title>
     <link rel="stylesheet" href="/css/postIndex.css">
 </head>
 <body>
@@ -20,29 +20,33 @@
             <a href="/html/account/login.html" id="auth-btn">Login</a>
         </nav>
     </header>
-    <!-- Main Content -->
-    <main>
-        <section class="post-info">
-            <h2 id="title">Loading...</h2>
-            <p id="author">Loading...</p>
-            <p id="date">Loading...</p>
-        </section>
+    <!-- Welcome Section -->
+    <section class="welcome">
+        <div class="banner">
+            <h2>Welcome to the Full Story</h2>
+            <p>Get the complete details and dive deeper into the topic of your interest.</p>
+            
+        </div>
+    </section>
 
-        <section class="post-content">
-            <img id="banner" src="https://via.placeholder.com/600x300" alt="Blog Banner">
-            <div id="content">Loading content...</div>
+    <!-- Main Section -->
+    <main>
+        <section id="post-details">
+            <div class="post-banner">
+                <img src="https://via.placeholder.com/800x400" alt="Post Banner">
+            </div>
+            <h1 id="post-title">Post Title</h1>
+            <p id="post-content">This is where the post content will appear. It's dynamically loaded based on the selected post.</p>
         </section>
     </main>
 
     <!-- Footer Section -->
     <footer>
-        <p>Contact Us: info@hotviewblog.com | Phone: 123-456-7890</p>
+        <p>&copy; 2024 HotView Labs. All Rights Reserved.</p>
     </footer>
 
+    <script type="module" src="/js/postIndex.js">
 
-    <!-- JavaScript -->
-    <script type="module">
-        import { fetchPosts } from '/js/fetchPosts.js';
 
         // Load posts dynamically
         fetchPosts();
