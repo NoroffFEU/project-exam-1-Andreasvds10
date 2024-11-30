@@ -14,6 +14,9 @@ export async function loginUser(credentials) {
             const userName = responseData.data.name || responseData.data.email.split('@')[0];
             const role = responseData.data.role;
 
+            // Log the access token after successful login
+            console.log('Access Token:', accessToken); // This will log the access token
+
             // Store in localStorage
             localStorage.setItem('accessToken', accessToken);
             localStorage.setItem('userName', userName);
@@ -32,6 +35,7 @@ export async function loginUser(credentials) {
         alert('An error occurred during login. Please try again.');
     }
 }
+
 
 export async function registerUser(details) {
     const payload = {
