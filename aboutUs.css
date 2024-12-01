@@ -16,61 +16,49 @@ body {
 
 /* Header Styling */
 header {
+    padding: 15px 30px;
     background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
     color: #fff;
-    padding: 20px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Consistent shadow */
 }
 
 .logo h1 {
-    font-size: 28px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-nav {
-    display: flex;
-    gap: 15px;
-    align-items: center;
+    font-size: 22px; /* Adjusted font size */
 }
 
 nav a {
     color: #fff;
+    font-size: 14px; /* Adjusted font size */
     text-decoration: none;
-    font-weight: bold;
-    padding: 10px 20px;
+    padding: 8px 15px; /* Adjusted padding */
+    margin: 0 5px; /* Adjusted margin */
     border-radius: 5px;
-    transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.3s ease;
 }
 
-nav a:hover,
-nav a.active {
-    background-color: rgba(255, 255, 255, 0.2);
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Hover effect */
 }
 
 /* Welcome Section */
 .welcome {
     text-align: center;
-    padding: 60px 20px;
-    background: rgba(0, 0, 0, 0.5); /* Transparent overlay */
-    color: #fff;
+    padding: 40px 15px;
+    background: rgba(0, 0, 0, 0.5);
+    max-width: 90%;
+    margin: 20px auto;
     border-radius: 10px;
-    margin: 30px auto;
-    max-width: 80%;
 }
 
 .welcome h2 {
-    font-size: 36px;
-    margin-bottom: 15px;
-    color: #fff;
+    font-size: 28px;
 }
 
 .welcome p {
-    font-size: 18px;
-    color: #fff;
+    font-size: 16px;
 }
 
 /* About Section */
@@ -121,4 +109,188 @@ footer {
     text-align: center;
     padding: 30px;
     margin-top: 40px;
+}
+
+/* Carousel */
+.carousel {
+    position: relative;
+    overflow: hidden;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #000;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-window {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.posts {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.carousel-item {
+    flex: 0 0 100%;
+    text-align: center;
+    position: relative;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.carousel-info {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.8));
+    color: #fff;
+    text-align: left;
+    border-radius: 0 0 10px 10px;
+}
+
+/* Navigation Buttons */
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.3);
+    color: #000;
+    border: none;
+    border-radius: 50%;
+    padding: 15px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 18px;
+}
+
+.carousel-control.prev {
+    left: 15px;
+}
+
+.carousel-control.next {
+    right: 15px;
+}
+
+.carousel-control:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* "Read More" Button Styling in Carousel */
+.carousel-item .read-more {
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #1e2d4f; /* Purple button background */
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 15px; /* Ensures the button is placed lower */
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Ensures button text is centered */
+}
+
+.carousel-item .read-more:hover {
+    background-color: #35548a; /* Darker shade on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Focus State */
+.carousel-item .read-more:focus {
+    outline: none;
+    box-shadow: 0 0 8px 2px #4b6cb7; /* Focus ring for accessibility */
+}
+
+/* Recent Posts Grid */
+.recent-posts {
+    padding: 20px;
+    text-align: center;
+    max-width: 90%;
+    margin: 20px auto;
+}
+
+/* Grid Layout */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Grid Item Styling */
+.grid-item {
+    background: #fff; /* Clean white background */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.grid-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Styling */
+.grid-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+/* Title Styling */
+.grid-item h4 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin: 15px 0 10px;
+}
+
+/* Description Text */
+.grid-item p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+/* "Read More" Button */
+/* Read More Button Styling */
+.grid-item .read-more {
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #1e2f57; /* Purple button background */
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 15px; /* Ensures the button is placed lower, with consistent spacing */
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-align: center; /* Ensures button text is centered */
+}
+
+.grid-item .read-more:hover {
+    background-color: #35548a; /* Darker shade on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Focus State */
+.grid-item .read-more:focus {
+    outline: none;
+    box-shadow: 0 0 8px 2px #202e4e; /* Focus ring for accessibility */
 }

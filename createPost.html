@@ -60,6 +60,36 @@
         <p>&copy; 2024 HotView Labs. All Rights Reserved.</p>
     </footer>
 
-    <script type="module" src="/js/createPost.js"></script>
+    <!-- JavaScript -->
+    <script type="module">
+        // Simulating the fetchPosts function
+        const fetchPosts = () => {
+            console.log('Posts fetched');
+        };
+        fetchPosts();
+
+        // Login/Logout functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const createPostBtn = document.getElementById('create-post-btn');
+            const authBtn = document.getElementById('auth-btn');
+            const token = localStorage.getItem('accessToken');
+
+            if (token) {
+                createPostBtn.style.display = 'inline-block'; // Show "Create Post" button
+                authBtn.textContent = 'Logout'; // Change "Login" to "Logout"
+                authBtn.href = '#'; // Disable default link
+                authBtn.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    localStorage.removeItem('accessToken'); // Remove token
+                    alert('Logged out successfully.');
+                    location.href = '/html/account/login.html'; // Redirect to login page
+                });
+            } else {
+                createPostBtn.style.display = 'none'; // Hide "Create Post" button
+                authBtn.textContent = 'Login'; // Change "Logout" back to "Login"
+                authBtn.href = '/html/account/login.html'; // Set login link
+            }
+        });
+    </script>
 </body>
 </html>

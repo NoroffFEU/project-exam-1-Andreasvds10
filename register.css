@@ -18,7 +18,7 @@ body {
 header {
     background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
     color: #fff;
-    padding: 20px 50px;
+    padding: 15px 30px; /* Adjusted padding */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -26,14 +26,14 @@ header {
 }
 
 .logo h1 {
-    font-size: 28px;
+    font-size: 22px; /* Adjusted font size */
     text-transform: uppercase;
     letter-spacing: 2px;
 }
 
 nav {
     display: flex;
-    gap: 15px;
+    gap: 10px; /* Adjusted gap */
     align-items: center;
 }
 
@@ -41,7 +41,8 @@ nav a {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
-    padding: 10px 20px;
+    font-size: 14px; /* Adjusted font size */
+    padding: 8px 15px; /* Adjusted padding */
     border-radius: 5px;
     transition: background-color 0.3s ease-in-out;
 }
@@ -54,22 +55,20 @@ nav a.active {
 /* Welcome Section */
 .welcome {
     text-align: center;
-    padding: 60px 20px;
+    padding: 40px 15px; /* Adjusted padding */
     background: rgba(0, 0, 0, 0.5); /* Transparent overlay */
-    color: #fff;
     border-radius: 10px;
-    margin: 30px auto;
-    max-width: 80%;
+    margin: 20px auto;
+    max-width: 90%;
 }
 
 .welcome h2 {
-    font-size: 36px;
-    margin-bottom: 15px;
-    color: #fff;
+    font-size: 28px; /* Adjusted font size */
+    margin-bottom: 10px; /* Adjusted margin */
 }
 
 .welcome p {
-    font-size: 18px;
+    font-size: 16px; /* Adjusted font size */
     color: #ddd;
 }
 

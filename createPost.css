@@ -18,7 +18,7 @@ body {
 header {
     background: rgba(0, 0, 0, 0.7);
     color: #fff;
-    padding: 20px 50px;
+    padding: 15px 30px; /* Adjusted padding */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -26,14 +26,14 @@ header {
 }
 
 .logo h1 {
-    font-size: 28px;
+    font-size: 22px; /* Adjusted font size */
     text-transform: uppercase;
     letter-spacing: 2px;
 }
 
 nav {
     display: flex;
-    gap: 15px;
+    gap: 10px; /* Adjusted gap */
     align-items: center;
 }
 
@@ -41,7 +41,8 @@ nav a {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
-    padding: 10px 20px;
+    font-size: 14px; /* Adjusted font size */
+    padding: 8px 15px; /* Adjusted padding */
     border-radius: 5px;
     transition: background-color 0.3s ease-in-out;
 }
@@ -53,57 +54,55 @@ nav a:hover {
 /* Welcome Section */
 .welcome {
     text-align: center;
-    padding: 60px 20px;
+    padding: 40px 15px; /* Adjusted padding */
     background: rgba(0, 0, 0, 0.5);
-    color: #fff;
     border-radius: 10px;
-    margin: 30px auto;
-    max-width: 80%;
+    margin: 20px auto;
+    max-width: 90%;
 }
 
 .welcome h2 {
-    font-size: 36px;
-    margin-bottom: 15px;
-    color: #fff;
+    font-size: 28px; /* Adjusted font size */
+    margin-bottom: 10px; /* Adjusted margin */
 }
 
 .welcome p {
-    font-size: 18px;
+    font-size: 16px; /* Adjusted font size */
     color: #ddd;
 }
 
 /* Main Content */
 main {
-    max-width: 900px;
-    margin: 50px auto;
-    padding: 30px;
+    max-width: 800px; /* Adjusted max-width */
+    margin: 40px auto; /* Adjusted margin */
+    padding: 20px; /* Adjusted padding */
     background: rgba(0, 0, 0, 0.6);
     border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Adjusted shadow */
 }
 
 /* Post Editor Section */
 .post-editor h2 {
-    font-size: 28px;
+    font-size: 24px; /* Adjusted font size */
     color: #fff;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px; /* Adjusted margin */
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 15px; /* Adjusted margin */
 }
 
 label {
     display: block;
-    font-size: 16px;
-    color: #ddd;
-    margin-bottom: 8px;
+    font-size: 14px; /* Adjusted font size */
+    color: #ccc; /* Adjusted color */
+    margin-bottom: 6px; /* Adjusted margin */
 }
 
 input, textarea {
     width: 100%;
-    padding: 12px;
+    padding: 10px; /* Adjusted padding */
     font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -118,7 +117,7 @@ input:focus, textarea:focus {
 }
 
 textarea {
-    height: 150px;
+    height: 120px; /* Adjusted height */
     resize: vertical;
 }
 
@@ -126,8 +125,8 @@ textarea {
 button {
     display: block;
     width: 100%;
-    padding: 12px;
-    font-size: 16px;
+    padding: 10px; /* Adjusted padding */
+    font-size: 14px; /* Adjusted font size */
     font-weight: bold;
     color: #fff;
     background-color: #223e81;
@@ -144,9 +143,9 @@ button:hover {
 /* Footer Styling */
 footer {
     text-align: center;
-    padding: 20px;
+    padding: 15px; /* Adjusted padding */
     background: rgba(0, 0, 0, 0.7);
     color: #fff;
-    font-size: 14px;
-    margin-top: 40px;
+    font-size: 12px; /* Adjusted font size */
+    margin-top: 30px; /* Adjusted margin */
 }

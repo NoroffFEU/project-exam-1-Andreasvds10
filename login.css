@@ -16,9 +16,9 @@ body {
 
 /* Header Styling */
 header {
-    background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    background: rgba(0, 0, 0, 0.7);
     color: #fff;
-    padding: 20px 50px;
+    padding: 15px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -26,14 +26,14 @@ header {
 }
 
 .logo h1 {
-    font-size: 28px;
+    font-size: 22px;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
 
 nav {
     display: flex;
-    gap: 15px;
+    gap: 10px;
     align-items: center;
 }
 
@@ -41,7 +41,8 @@ nav a {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
-    padding: 10px 20px;
+    font-size: 14px;
+    padding: 8px 15px;
     border-radius: 5px;
     transition: background-color 0.3s ease-in-out;
 }
@@ -54,41 +55,38 @@ nav a.active {
 /* Welcome Section */
 .welcome {
     text-align: center;
-    padding: 60px 20px;
-    background: rgba(0, 0, 0, 0.5); /* Transparent overlay */
-    color: #fff;
+    padding: 40px 15px;
+    background: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
-    margin: 30px auto;
-    max-width: 80%;
+    margin: 20px auto;
+    max-width: 90%;
 }
 
 .welcome h2 {
-    font-size: 36px;
-    margin-bottom: 15px;
-    color: #fff;
+    font-size: 28px;
+    margin-bottom: 10px;
 }
 
 .welcome p {
-    font-size: 18px;
+    font-size: 16px;
     color: #ddd;
 }
 
 /* Login Container */
 .login-container {
-    background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
-    padding: 40px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    max-width: 400px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    max-width: 350px;
     width: 100%;
-    margin: 30px auto;
+    margin: 50px auto;
     text-align: center;
-    margin-top: 75px;
 }
 
 .login-container h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
+    font-size: 24px;
+    margin-bottom: 15px;
     color: #fff;
 }
 
@@ -96,22 +94,22 @@ nav a.active {
 form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
 }
 
 .form-group label {
-    font-size: 16px;
-    color: #ddd;
+    font-size: 14px;
+    color: #ccc;
     text-align: left;
     display: block;
 }
 
 .form-group input {
     width: 100%;
-    padding: 10px;
+    padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 /* Button Styling */
@@ -121,7 +119,40 @@ form {
     padding: 10px;
     border: none;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 14px;
     cursor: pointer;
-    transition: background-color 0.
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #182848;
+}
+
+/* Register Button Styling */
+.register-btn {
+    background-color: #4b6cb7;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.register-btn:hover {
+    background-color: #35548a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    font-size: 12px;
+    margin-top: 30px;
 }
